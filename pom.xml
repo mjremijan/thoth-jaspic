@@ -17,9 +17,19 @@
             DONE 2.Run multiple applications
             JASPIC webapp only affects its WAR.  Does not affect any other WAR deployed to the same server.
 
-            DONE 3. Principal object
-            Generate a Principal object with roles from an HttpServletRequest
-
+            3. Principal object
+            Generate a Principal object from HttpServletRequest.
+            No roles, just a Principal with the right name
+        
+            4a. Is User In Role object (web.xml)
+            Generate a Principal object from HttpServletRequest with roles. 
+            Valid roles are in web.xml
+        
+            4b. Is User In Role object (annotations)
+            Generate a Principal object from HttpServletRequest with roles. 
+            Valid roles are in @DeclaredRoles annotation
+            
+            ----------------------------
             3.      Servlet protected 1-1
             Protect a servlet where internal `role` and external `group` have the same value.
             Use web.xml and glassfish-web.xml
@@ -71,6 +81,7 @@
         <module>02-jaspic-goodneighbor</module>
         <module>02-jaspic-helloworld</module>
         <module>03-jaspic-principal</module>
+        <module>04-jaspic-isuserinrole</module>
     </modules>
     <dependencies>
         <dependency>

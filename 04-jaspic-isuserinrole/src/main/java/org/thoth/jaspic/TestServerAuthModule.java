@@ -93,12 +93,15 @@ public class TestServerAuthModule implements ServerAuthModule {
             log.info(String.format("%n%s", sp.toString()));
         }
 
-        String principalId = request.getParameter("principalId");
-        log.info(String.format("principalId=\"%s\"", principalId));
+        String user = request.getParameter("user");
+        log.info(String.format("user=\"%s\"", user));
+
+        String groups = request.getParameter("groups");
+        log.info(String.format("groups=\"%s\"", groups));
 
         log.info(String.format("CALL this#authenticateUser(...)"));
-        if (principalId != null) {
-            authenticateUser(principalId, clientSubject, serviceSubject);
+        if (user != null & groups != null) {
+            authenticateUser(user, groups, clientSubject, serviceSubject);
         }
 
         return SUCCESS;
@@ -135,15 +138,15 @@ public class TestServerAuthModule implements ServerAuthModule {
         }
     }
 
-    private void authenticateUser(String principalId, Subject clientSubject, Subject serverSubject)
+    private void authenticateUser(String user, String groups, Subject clientSubject, Subject serverSubject)
     {
-        log.info(String.format("Creating Principal for principalId=\"%s\"", principalId));
+        log.info(String.format("Creating Principal for user=\"%s\", groups=\"%s\"", user, groups));
 
         CallerPrincipalCallback callerPrincipalCallback
-            = new CallerPrincipalCallback(clientSubject, principalId);
+            = new CallerPrincipalCallback(clientSubject, user);
 
         GroupPrincipalCallback groupPrincipalCallback
-            = new GroupPrincipalCallback(clientSubject, "".split(","));
+            = new GroupPrincipalCallback(clientSubject, groups.split(","));
 
         try {
             handler.handle(
