@@ -8,10 +8,69 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <description>
+        Areas of Research
+
+            DONE 1. Embed with web-app
+            Get JASPIC up and running embedded within a WAR.  Requests run the code.  Nothing actually protected.
+
+            DONE 2.Run multiple applications
+            JASPIC webapp only affects its WAR.  Does not affect any other WAR deployed to the same server.
+
+            DONE 3. Principal object
+            Generate a Principal object with roles from an HttpServletRequest
+
+            3.      Servlet protected 1-1
+            Protect a servlet where internal `role` and external `group` have the same value.
+            Use web.xml and glassfish-web.xml
+
+            4.      Servlet protected 1-2
+            Protect a servlet where internal `role` and external `group` have the same value.
+            Use @Annotations and glassfish-web.xml
+
+            5.      Servlet protected 2-1
+            Protect a servlet where internal `role` is application specific and is mapped to external `group`.
+            Use web.xml and glassfish-web.xml
+
+            6.      Servlet protected 2-2
+            Protect a servlet where internal `role` is application specific and is mapped to external `group`.
+            Use @ Annotations and glassfish-web.xml
+
+            7.      Servlet public and private
+            Application has both public and private servlets.
+
+            8.      JSP protected 1-1
+            Protect a JSP where internal `role` and external `group` have the same value.
+            Use web.xml and glassfish-web.xml
+
+            9.      JSP protected 2-1
+            Protect a JSP where internal `role` is application specific and is mapped to external `group`.
+            Use web.xml and glassfish-web.xml
+
+            10. JSP public and private
+            Application has both public and private JSPs.
+
+            11. Public Servlet forward request to protected JSP
+            Application has a public Servlet that forwards to a protected JSP
+
+            12. CDI integration
+            @Inject the JASPIC stuff into the Filter using CDI.
+
+            13. JSF page protected
+            Protect a JSF page that’s loaded with the default JSF controller
+            web.xml?
+
+            14. JSF controller protected
+            Protect a JSF controller  
+            web.xml?
+
+            15. JAX-RS…JWT (web tokens)
+    </description>
     <modules>
         <module>01-jaspic-embedded</module>
         <module>02-jaspic-goodneighbor</module>
         <module>02-jaspic-helloworld</module>
+        <module>03-jaspic-principal</module>
     </modules>
     <dependencies>
         <dependency>
