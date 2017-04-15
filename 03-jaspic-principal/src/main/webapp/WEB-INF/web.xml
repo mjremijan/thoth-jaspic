@@ -14,7 +14,7 @@
     
     
     <security-role>
-        <role-name>spectrum</role-name>
+        <role-name>rainbow</role-name>
     </security-role>
     <security-role>
         <role-name>color</role-name>
