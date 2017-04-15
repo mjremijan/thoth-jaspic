@@ -88,10 +88,6 @@
                                 <td style="font-family:courier"><%= request.isUserInRole(token) %></td>
                             </tr>
                      <% } %>
-                            <tr>
-                                <td style="font-family:courier">In role "spectrum"</td>
-                                <td style="font-family:courier"><%= request.isUserInRole("spectrum") %></td>
-                            </tr>
                         </table>
                         <p>
                             <input type="button" onclick="document.location.href='index.jsp';" value="Clear" />
