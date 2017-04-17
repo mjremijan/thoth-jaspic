@@ -13,5 +13,4 @@
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>
-    <name>03-jaspic-principal</name>
 </project>

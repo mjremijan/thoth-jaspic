@@ -7,11 +7,10 @@
         <version>1.0.0.0-SNAPSHOT</version>
     </parent>
     
-    <artifactId>04-jaspic-isuserinrole</artifactId>
+    <artifactId>04-jaspic-isuserinrole-webxml</artifactId>
     <packaging>war</packaging>
-
+    
     <build>
         <finalName>${project.artifactId}</finalName>
-    </build>
-    <name>04-jaspic-isuserinrole</name>
+    </build>    
 </project>

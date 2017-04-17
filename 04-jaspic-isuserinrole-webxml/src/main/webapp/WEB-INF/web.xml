@@ -14,10 +14,13 @@
     
     
     <security-role>
-        <role-name>rainbow</role-name>
+        <role-name>public</role-name>
     </security-role>
     <security-role>
-        <role-name>color</role-name>
+        <role-name>classified</role-name>
+    </security-role>
+    <security-role>
+        <role-name>top secret</role-name>
     </security-role>
     
 </web-app>

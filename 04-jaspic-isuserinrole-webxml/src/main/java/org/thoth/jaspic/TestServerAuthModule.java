@@ -93,15 +93,12 @@ public class TestServerAuthModule implements ServerAuthModule {
             log.info(String.format("%n%s", sp.toString()));
         }
 
-        String user = request.getParameter("user");
-        log.info(String.format("user=\"%s\"", user));
-
-        String groups = request.getParameter("groups");
-        log.info(String.format("groups=\"%s\"", groups));
+        String roles = request.getParameter("roles");
+        log.info(String.format("roles=\"%s\"", roles));
 
         log.info(String.format("CALL this#authenticateUser(...)"));
-        if (user != null & groups != null) {
-            authenticateUser(user, groups, clientSubject, serviceSubject);
+        if (roles != null) {
+            authenticateUser(roles, clientSubject, serviceSubject);
         }
 
         return SUCCESS;
@@ -138,15 +135,15 @@ public class TestServerAuthModule implements ServerAuthModule {
         }
     }
 
-    private void authenticateUser(String user, String groups, Subject clientSubject, Subject serverSubject)
+    private void authenticateUser(String roles, Subject clientSubject, Subject serverSubject)
     {
-        log.info(String.format("Creating Principal for user=\"%s\", groups=\"%s\"", user, groups));
+        log.info(String.format("Creating Principal for roles=\"%s\"", roles));
 
         CallerPrincipalCallback callerPrincipalCallback
-            = new CallerPrincipalCallback(clientSubject, user);
+            = new CallerPrincipalCallback(clientSubject, "04-jaspic-isuserinrole-webxml-usr");
 
         GroupPrincipalCallback groupPrincipalCallback
-            = new GroupPrincipalCallback(clientSubject, groups.split(","));
+            = new GroupPrincipalCallback(clientSubject, roles.split(","));
 
         try {
             handler.handle(
