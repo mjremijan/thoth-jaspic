@@ -11,19 +11,24 @@
     <description>
         Areas of Research
 
-            DONE 1. Embed with web-app
+            [DONE] 1. Embed with web-app
             Get JASPIC up and running embedded within a WAR.  Requests run the code.  Nothing actually protected.
 
-            DONE 2.Run multiple applications
+            [DONE] 2.Run multiple applications
             JASPIC webapp only affects its WAR.  Does not affect any other WAR deployed to the same server.
 
-            3. Principal object
+            [DONE] 3. Principal object
             Generate a Principal object from HttpServletRequest.
             No roles, just a Principal with the right name
         
-            4a. Is User In Role object (web.xml)
-            Generate a Principal object from HttpServletRequest with roles. 
+            4a. Is User In Role (web.xml)
+            Generate a Principal object with ROLES from an HttpServletRequest. 
             Valid roles are in web.xml
+        
+            4b. Is User In Role (web.xml and glassfish-web.xml)
+            Generate a Principal object with ROLES from an HttpServletRequest. 
+            Application-specific, valid roles are in web.xml.  Application-specific
+            roles are mapped to user's groups in glassfish-web.xml
         
             4b. Is User In Role object (annotations)
             Generate a Principal object from HttpServletRequest with roles. 
