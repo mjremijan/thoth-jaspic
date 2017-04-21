@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<glassfish-web-app>
+    <security-role-mapping>
+        <role-name>everybody</role-name>
+        <group-name>public</group-name>
+    </security-role-mapping>
+    <security-role-mapping>
+        <role-name>only_the_boss</role-name>
+        <group-name>classified</group-name>
+    </security-role-mapping>
+    <security-role-mapping>
+        <role-name>only_the_bosses_boss</role-name>
+        <group-name>top secret</group-name>
+    </security-role-mapping>       
+</glassfish-web-app>

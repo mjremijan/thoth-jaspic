@@ -21,7 +21,7 @@
             Generate a Principal object from HttpServletRequest.
             No roles, just a Principal with the right name
         
-            4a. Is User In Role (web.xml)
+            [DONE] 4a. Is User In Role (web.xml)
             Generate a Principal object with ROLES from an HttpServletRequest. 
             Valid roles are in web.xml
         
