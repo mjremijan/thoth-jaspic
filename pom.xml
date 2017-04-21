@@ -25,14 +25,19 @@
             Generate a Principal object with ROLES from an HttpServletRequest. 
             Valid roles are in web.xml
         
-            4b. Is User In Role (web.xml and glassfish-web.xml)
+            [DONE] 4b. Is User In Role (web.xml and glassfish-web.xml)
             Generate a Principal object with ROLES from an HttpServletRequest. 
             Application-specific, valid roles are in web.xml.  Application-specific
             roles are mapped to user's groups in glassfish-web.xml
         
-            4b. Is User In Role object (annotations)
+            5a. Is User In Role object (annotations)
             Generate a Principal object from HttpServletRequest with roles. 
             Valid roles are in @DeclaredRoles annotation
+        
+            5b. Is User In Role (annotations and glassfish-web.xml)
+            Generate a Principal object with ROLES from an HttpServletRequest. 
+            Application-specific, valid roles are in web.xml.  Application-specific
+            roles are mapped to user's groups in glassfish-web.xml
             
             ----------------------------
             3.      Servlet protected 1-1
