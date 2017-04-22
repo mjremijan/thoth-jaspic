@@ -43,7 +43,12 @@
             <p>
                 The caveat to using <span style="font-family: courier">Request#isUserInRole()</span> is the
                 <span style="font-family: courier">web.xml</span> file.  In order for a webapp to use
-                a role, it must be put into <span style="font-family: courier">web.xml</span> as <pre>
+                a role, it must be put into <span style="font-family: courier">web.xml</span>.  If you do not
+                have the role in <span style="font-family: courier">web.xml</span>, then 
+                <span style="font-family: courier">Request#isUserInRole()</span> will always return
+                false for that role.  Only the roles in <span style="font-family: courier">web.xml</span>
+                are the roles the application the application considers valid.  Enter roles into
+                <span style="font-family: courier">web.xml</span> like this: <pre>
 &lt;security-role&gt;
     &lt;role-name>ROLE_NAME&lt;/role-name&gt;
 &lt;/security-role&gt;</pre>           
