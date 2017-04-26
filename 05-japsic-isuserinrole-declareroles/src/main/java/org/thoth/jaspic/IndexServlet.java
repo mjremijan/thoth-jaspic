@@ -21,7 +21,7 @@ public class IndexServlet extends HttpServlet {
         log.info("ENTER processRequest()");
 
         RequestDispatcher rd
-            = request.getRequestDispatcher("/index.jsp");
+            = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 
         rd.forward(request, response);
     }

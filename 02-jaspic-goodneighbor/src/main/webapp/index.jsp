@@ -5,11 +5,11 @@
 
 <html>
     <head>
-        <title>${project.artifactId} Page</title>
+        <title><%= pageContext.findAttribute("maven.project.artifactId") %> Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <h1>${project.artifactId}</h1>
+        <h1><%= pageContext.findAttribute("maven.project.artifactId") %></h1>
         <p>
             Timestamp: <%= new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(Calendar.getInstance().getTime())%>
         </p>
@@ -22,7 +22,7 @@
         <h2>Log file location</h2>
         <blockquote>
             <p>
-                <%= System.getProperty("com.sun.aas.instanceRoot") + File.separator + "logs" + File.separator + "${project.artifactId}.log"%>
+                <%= System.getProperty("com.sun.aas.instanceRoot") + File.separator + "logs" + File.separator + pageContext.findAttribute("maven.project.artifactId") + ".log"%>
             </p>
         </blockquote>
 
@@ -35,13 +35,13 @@
                 Yes!
             </p>
             <p>
-                First, deploy <i>${project.artifactId}.war</i>. 
+                First, deploy <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i>. 
             </p>
             <p>
-                After <i>${project.artifactId}.war</i> is deployed, look at 
+                After <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> is deployed, look at 
                 the log file.  Find in the logs that
                 the JASPIC classes have been registered just for the
-                <i>${project.artifactId}</i> application context.
+                <i><%= pageContext.findAttribute("maven.project.artifactId") %></i> application context.
             </p>
             <div style="font-family:Courier;">
                 TestStartupListener:18 - ENTER contextInitialized()<br />
@@ -50,19 +50,19 @@
             </div>
             <p>
                 Now, use the browser refresh button to keep reloading the 
-                <i>${project.artifactId}</i> application home page. 
+                <i><%= pageContext.findAttribute("maven.project.artifactId") %></i> application home page. 
                 Watch the log files.  You'll see all the JASPIC code logging.
             </p>
             <p>
-                Second, deploy <i>${project.helloworldId}.war</i>. 
+                Second, deploy <i><%= pageContext.findAttribute("maven.helloworld.artifactId") %>.war</i>. 
             </p>
             <p>
                 Now, use the browser refresh button to keep reloading the 
-                <i>${project.helloworldId}</i> application home page. 
+                <i><%= pageContext.findAttribute("maven.helloworld.artifactId") %></i> application home page. 
                 Watch the log files.  You'll see nothing.  None of the
                 JASPIC code will be logging when reloading the
-                <i>${project.helloworldId}</i> application home page.  But
-                if you go back to reloading the <i>${project.artifactId}</i> 
+                <i><%= pageContext.findAttribute("maven.helloworld.artifactId") %></i> application home page.  But
+                if you go back to reloading the <i><%= pageContext.findAttribute("maven.project.artifactId") %></i> 
                 application home page again, you'll see the JASPIC code
                 logging resume.
             </p>

@@ -5,11 +5,11 @@
 
 <html>
     <head>
-        <title>${project.artifactId} Page</title>
+        <title><%= pageContext.findAttribute("maven.project.artifactId") %> Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <h1>${project.artifactId}</h1>
+        <h1><%= pageContext.findAttribute("maven.project.artifactId") %></h1>
         <p>
             Timestamp: <%= new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(Calendar.getInstance().getTime())%>
         </p>
@@ -24,7 +24,7 @@
         <h2>Log file location</h2>
         <blockquote>
             <p>
-                <%= System.getProperty("com.sun.aas.instanceRoot") + File.separator + "logs" + File.separator + "${project.artifactId}.log"%>
+                <%= System.getProperty("com.sun.aas.instanceRoot") + File.separator + "logs" + File.separator + pageContext.findAttribute("maven.project.artifactId") + ".log"%>
             </p>
         </blockquote>
 

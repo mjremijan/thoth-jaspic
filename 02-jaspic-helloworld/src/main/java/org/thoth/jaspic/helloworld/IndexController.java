@@ -10,7 +10,8 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class IndexController implements Serializable {
+    private static final long serialVersionUID = 1244514523L;
     public String getTimestamp() {
-        return new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(Calendar.getInstance().getTime()); 
+        return new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(Calendar.getInstance().getTime());
     }
 }

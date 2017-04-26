@@ -11,7 +11,7 @@
     <packaging>war</packaging>
     
     <properties>
-        <project.helloworldId>02-jaspic-helloworld</project.helloworldId>
+        <helloworld.artifactId>02-jaspic-helloworld</helloworld.artifactId>
     </properties>
 
     <build>

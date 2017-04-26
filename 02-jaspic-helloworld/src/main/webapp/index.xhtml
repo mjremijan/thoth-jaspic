@@ -5,11 +5,11 @@
     xmlns:h="http://java.sun.com/jsf/html" 
 >
     <h:head>
-        <title>02-jaspic-helloworld Page</title>
+        <title>#{propertiesController.projectArtifactId}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </h:head>
     <h:body>
-        <h1>02-jaspic-helloworld from Facelets!</h1>
+        <h1>#{propertiesController.projectArtifactId} from Facelets!</h1>
         <p>
             IndexController timestamp: #{indexController.timestamp}&nbsp;&nbsp;&nbsp;<h:link value="RELOAD" outcome="index" />		
         </p>

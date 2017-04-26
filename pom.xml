@@ -5,9 +5,7 @@
     <artifactId>thoth-jaspic</artifactId>
     <version>1.0.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    
     <!--
         Areas of Research
 
@@ -87,7 +85,11 @@
 
             15. JAX-RS...JWT (web tokens)
     -->
-    <description></description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
     <modules>
         <module>01-jaspic-embedded</module>
         <module>02-jaspic-goodneighbor</module>
@@ -116,72 +118,30 @@
     </dependencies>
     <build>
         <resources>
-            <!-- 
-             FILTER THE FILES FOR VARIABLE REPLACEMENT 
-            -->
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.6.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
-            <!-- 
-             FILTER THE *.jsp FILES AND PUT THE FILTERED FILES INTO THE 
-             DIRECTORY THAT IS USED TO BUILD THE WAR FILE
-            -->              
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/webapp</directory>
-                                    <filtering>true</filtering>
-                                    <includes>
-                                        <include>index.jsp</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <!--
-             COMPILE TO JAVA 8
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            
-            <!--
-             DO NOT FAIL IF web.xml IS MISSING
-             DO NOT COPY THE jsp files.  THEY HAVE ALREADY BEEN COPIED BY maven-resources-plugin
-            --> 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <warSourceExcludes>index.jsp</warSourceExcludes>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
         </plugins>
+        
     </build>
 </project>

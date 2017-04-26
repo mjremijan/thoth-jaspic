@@ -7,11 +7,11 @@
 
 <html>
     <head>
-        <title>${project.artifactId} Page</title>
+        <title><%= pageContext.findAttribute("maven.project.artifactId") %> Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <h1>${project.artifactId}</h1>
+        <h1><%= pageContext.findAttribute("maven.project.artifactId") %></h1>
         <p>
             Timestamp: <%= new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(Calendar.getInstance().getTime())%>
         </p>
@@ -27,7 +27,7 @@
         <h2>Log file location</h2>
         <blockquote>
             <p>
-                <%= System.getProperty("com.sun.aas.instanceRoot") + File.separator + "logs" + File.separator + "${project.artifactId}.log"%>
+                <%= System.getProperty("com.sun.aas.instanceRoot") + File.separator + "logs" + File.separator + pageContext.findAttribute("maven.project.artifactId")  + ".log"%>
             </p>
         </blockquote>
 
@@ -46,7 +46,7 @@
                 a role, it must be put into <span style="font-family: courier">web.xml</span>.  If you do not
                 have the role in <span style="font-family: courier">web.xml</span>, then 
                 <span style="font-family: courier">Request#isUserInRole()</span> will always return
-                false for that role.  Only the roles in <span style="font-family: courier">web.xml</span>
+                false.  Only the roles in <span style="font-family: courier">web.xml</span>
                 are the roles the application the application considers valid.  Enter roles into
                 <span style="font-family: courier">web.xml</span> like this: <pre>
 &lt;security-role&gt;
@@ -54,7 +54,7 @@
 &lt;/security-role&gt;</pre>           
             </p>
             <p>
-                Valid roles for /${project.artifactId} are:
+                Valid roles for /<%= pageContext.findAttribute("maven.project.artifactId") %> are:
             </p>
             <ol>
                 <li>public</li>
@@ -68,7 +68,7 @@
                 role will return <span style="font-family: courier">false</span>.
             </p>
             <p>
-                <form action="index.jsp">
+                <form action="index.jsp#results">
                     ROLES: (comma separated list)<br />
                     <input type="text" name="roles" /><br />
                     <br />
@@ -77,7 +77,13 @@
             </p>
             <% Principal p = request.getUserPrincipal(); %>
             <% if (p != null) { %>
-                <p><b>Role Information</b></p>
+                <p>
+                    <a name="results" />
+                    <b>Role Information</b>
+                </p>
+                <p>
+                    <input type="button" onclick="document.location.href='index.jsp';" value="Clear" />
+                </p>
                 <%
 					String roles = request.getParameter("roles");
                     if (roles != null) {
@@ -90,9 +96,6 @@
                             </tr>
                      <% } %>
                         </table>
-                        <p>
-                            <input type="button" onclick="document.location.href='index.jsp';" value="Clear" />
-                        </p>
                  <% } %>            
             <% } %>
         </blockquote>

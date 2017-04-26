@@ -10,19 +10,19 @@ import org.apache.log4j.Logger;
 public class TestStartupListener implements ServletContextListener {
 
     private static final Logger log = Logger.getLogger(TestStartupListener.class);
-    
+
     private String registrationID;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         log.info(String.format("ENTER contextInitialized()"));
-        
+
         String appContext
             = sce.getServletContext().getVirtualServerName() + " " + sce.getServletContext().getContextPath();
-       
+
         AuthConfigFactory factory
             = AuthConfigFactory.getFactory();
-        
+
         registrationID = factory.registerConfigProvider(
             new TestAuthConfigProvider(),
             "HttpServlet",
