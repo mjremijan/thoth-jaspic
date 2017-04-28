@@ -28,7 +28,7 @@
             Application-specific, valid roles are in web.xml.  Application-specific
             roles are mapped to user's groups in glassfish-web.xml
         
-            5a. Is User In Role (annotations)
+            [DONE] 5a. Is User In Role (annotations)
             Generate a Principal object from HttpServletRequest with roles. 
             Valid roles are in @DeclaredRoles annotation
         
@@ -97,6 +97,7 @@
         <module>03-jaspic-principal</module>
         <module>04-jaspic-isuserinrole-webxml</module>
         <module>05-japsic-isuserinrole-declareroles</module>
+        <module>05-jaspic-isuserinrole-glassfishwebxml</module>
     </modules>
     <dependencies>
         <dependency>
