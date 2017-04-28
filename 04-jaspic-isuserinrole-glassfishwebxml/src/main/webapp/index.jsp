@@ -53,7 +53,7 @@
             <p>
                 The idea is like this.  Inside of <span style="font-family: courier">web.xml</span>, <i>roles</i>
                 are defined that are <b>application-specific</b>.  This means that these <i>roles</i> are only 
-                used within the application and nowhere else.  So for <%= pageContext.findAttribute("maven.project.artifactId") %>.war, the following
+                used within the application and nowhere else.  So for <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i>, the following
                 <b>application-specific</b> <i>roles</i> are defined in <span style="font-family: courier">web.xml</span> <pre>
 &lt;security-role&gt;
     &lt;role-name>everybody&lt;/role-name&gt;
@@ -71,8 +71,8 @@
             </p>
             <p>
                 Now, some time later, its finally come to the decision that the indentity management
-                for <%= pageContext.findAttribute("maven.project.artifactId") %>.war will be handled by Microsoft Active Directory and users 
-                of <%= pageContext.findAttribute("maven.project.artifactId") %>.war will be assigned to the following <b>identity-management</b>
+                for <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> will be handled by Microsoft Active Directory and users 
+                of <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> will be assigned to the following <b>identity-management</b>
                 <i>groups</i>: "public", "classified", "top secret".
             </p>
             <p>
@@ -95,7 +95,7 @@
             </p>
             
             <p>
-                The valid values in <%= pageContext.findAttribute("maven.project.artifactId") %>.war for <b>application-specific</b> <i>roles</i> are:
+                The valid values in <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> for <b>application-specific</b> <i>roles</i> are:
             </p>
             <ol>
                 <li>everybody</li>
@@ -103,7 +103,7 @@
                 <li>top only_the_bosses_boss</li>
             </ol>
             <p>
-                The valid values in <%= pageContext.findAttribute("maven.project.artifactId") %>.war for <b>identity-management</b> <i>groups</i> are:
+                The valid values in <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> for <b>identity-management</b> <i>groups</i> are:
             </p>
             <ol>
                 <li>public</li>
