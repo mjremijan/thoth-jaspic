@@ -19,7 +19,7 @@
         
         <h2>Test Goals</h2>
         <ul>
-            <% String q1 = "Can roles be loaded from <span style=\"font-family: courier\">HttpServletRequest</span> and used by <span style=\"font-family: courier\">Request#isUserInRole()</span>?"; %>
+            <% String q1 = "Can @DeclareRoles replace roles specified in <span style=\"font-family: courier\">web.xml</span>?"; %>
             <li><%= q1 %></li>
         </ul>
 
@@ -38,32 +38,67 @@
         </p>
         <blockquote>
             <p>
-                Yes!
+                Yes! It would appear so.
             </p>
             <p>
-                The caveat to using <span style="font-family: courier">Request#isUserInRole()</span> is the
-                <span style="font-family: courier">web.xml</span> file.  In order for a webapp to use
-                a role, it must be put into <span style="font-family: courier">web.xml</span>.  If you do not
-                have the role in <span style="font-family: courier">web.xml</span>, then 
-                <span style="font-family: courier">Request#isUserInRole()</span> will always return
-                false for that role.  Only the roles in <span style="font-family: courier">web.xml</span>
-                are the roles the application the application considers valid.  Enter roles into
-                <span style="font-family: courier">web.xml</span> like this: <pre>
-&lt;security-role&gt;
-    &lt;role-name>ROLE_NAME&lt;/role-name&gt;
-&lt;/security-role&gt;</pre>           
+                What I did for <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> was I removed
+                all &lt;security-role&gt; elements from the <span style="font-family: courier">web.xml</span>
+                file and instead I used the <span style="font-family: courier">@DeclareRole</span> annotation
+                to declare the roles for the application.  But a big question is which class should have the
+                <span style="font-family: courier">@DeclareRole</span> annotation?
             </p>
             <p>
-                Valid roles for /<%= pageContext.findAttribute("maven.project.artifactId") %> are:
+                Turns out, it seems as if <span style="font-family: courier">@DeclareRole</span> can be anywhere.
+                My guess is the Servlet container is scanning all the classes in the application looking for
+                the annoation, though this behavior is not clear in the Servlet specification. So it may be
+                specific to Payara.  I put <span style="font-family: courier">@DeclareRole</span> on the 
+                following classes and they <b>ALL</b> worked.
             </p>
             <ol>
-                <li>public</li>
-                <li>classified</li>
-                <li>top secret</li>
+                <li>
+                    The <span style="font-family: courier">IndexServlet</span> class, configured
+                    to load at startup, which is responsible for this page.
+                </li>
+                <li>
+                    A <span style="font-family: courier">RolesServlet</span> class, configured 
+                    to load at startup, but never actually used
+                </li>
+                <li>
+                    A <span style="font-family: courier">DeclareRolesBean</span> which is a simple POJO
+                    never used for anything.
+                </li>
             </ol>
             <p>
-                If you enter one of these roles in the form below, you will see
-                <span style="font-family: courier">Request#isUserInRole()</span>
+                No matter where I put the <span style="font-family: courier">@DeclareRole</span> annotation,
+                it seems as though the Servlet container found them all and registered all the roles.  I even
+                tried having a single <span style="font-family: courier">@DeclareRole</span> annoation in each class
+                and still the Servlet container found and registered them all.
+            </p>
+            <p>
+                For <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i>, all of the roles have
+                been removed from <span style="font-family: courier">web.xml</span> and are now declared on
+                the <span style="font-family: courier">@DeclareRole</span> annoation of the 
+                <span style="font-family: courier">DeclareRolesBean.java</span> class (again, this class is
+                a simple POJO that's never used).  The valid roles for
+                <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> are: <pre>
+package org.thoth.jaspic;
+import javax.annotation.security.DeclareRoles;
+
+<b>@DeclareRoles({"public", "classified", "top secret"})</b>
+public class DeclareRolesBean {
+
+}</pre>
+            </p>
+            <p>
+                If you enter one of these roles in the form below and then submit,
+                the JASPIC code will use the <span style="font-family: courier">HttpServletRequest</span>
+                to create a <span style="font-family: courier">Principal</span> and assoicate whatever 
+                roles you enter in the form below to that <span style="font-family: courier">Principal</span>. 
+                Then <span style="font-family: courier">Request#isUserInRole()</span> will be called
+                using the roles you enter in the form below.  If what you enter matches what's on 
+                the <span style="font-family: courier">@DeclareRole</span> annoation of the 
+                <span style="font-family: courier">DeclareRolesBean.java</span> class, then
+                <span style="font-family: courier">Request#isUserInRole()</span> will                 
                 return <span style="font-family: courier">true</span>.  Any other
                 role will return <span style="font-family: courier">false</span>.
             </p>
