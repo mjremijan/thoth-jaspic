@@ -43,15 +43,15 @@
             <p>
                 What I did for <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> was I removed
                 all &lt;security-role&gt; elements from the <span style="font-family: courier">web.xml</span>
-                file and instead I used the <span style="font-family: courier">@DeclareRole</span> annotation
+                file and instead I used the <span style="font-family: courier">@DeclareRoles</span> annotation
                 to declare the roles for the application.  But a big question is which class should have the
-                <span style="font-family: courier">@DeclareRole</span> annotation?
+                <span style="font-family: courier">@DeclareRoles</span> annotation?
             </p>
             <p>
-                Turns out, it seems as if <span style="font-family: courier">@DeclareRole</span> can be anywhere.
+                Turns out, it seems as if <span style="font-family: courier">@DeclareRoles</span> can be anywhere.
                 My guess is the Servlet container is scanning all the classes in the application looking for
                 the annoation, though this behavior is not clear in the Servlet specification. So it may be
-                specific to Payara.  I put <span style="font-family: courier">@DeclareRole</span> on the 
+                specific to Payara.  I put <span style="font-family: courier">@DeclareRoles</span> on the 
                 following classes and they <b>ALL</b> worked.
             </p>
             <ol>
@@ -69,15 +69,15 @@
                 </li>
             </ol>
             <p>
-                No matter where I put the <span style="font-family: courier">@DeclareRole</span> annotation,
+                No matter where I put the <span style="font-family: courier">@DeclareRoles</span> annotation,
                 it seems as though the Servlet container found them all and registered all the roles.  I even
-                tried having a single <span style="font-family: courier">@DeclareRole</span> annoation in each class
+                tried having a single <span style="font-family: courier">@DeclareRoles</span> annoation in each class
                 and still the Servlet container found and registered them all.
             </p>
             <p>
                 For <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i>, all of the roles have
                 been removed from <span style="font-family: courier">web.xml</span> and are now declared on
-                the <span style="font-family: courier">@DeclareRole</span> annoation of the 
+                the <span style="font-family: courier">@DeclareRoles</span> annoation of the 
                 <span style="font-family: courier">DeclareRolesBean.java</span> class (again, this class is
                 a simple POJO that's never used).  The valid roles for
                 <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> are: <pre>
@@ -96,7 +96,7 @@ public class DeclareRolesBean {
                 roles you enter in the form below to that <span style="font-family: courier">Principal</span>. 
                 Then <span style="font-family: courier">Request#isUserInRole()</span> will be called
                 using the roles you enter in the form below.  If what you enter matches what's on 
-                the <span style="font-family: courier">@DeclareRole</span> annoation of the 
+                the <span style="font-family: courier">@DeclareRoles</span> annoation of the 
                 <span style="font-family: courier">DeclareRolesBean.java</span> class, then
                 <span style="font-family: courier">Request#isUserInRole()</span> will                 
                 return <span style="font-family: courier">true</span>.  Any other
