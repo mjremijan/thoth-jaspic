@@ -32,17 +32,23 @@
             Generate a Principal object from HttpServletRequest with roles. 
             Valid roles are in @DeclaredRoles annotation
         
-            5b. Is User In Role (annotations and glassfish-web.xml)
+            [DONE] 5b. Is User In Role (annotations and glassfish-web.xml)
             Generate a Principal object with ROLES from an HttpServletRequest. 
             Application-specific, valid roles are in web.xml.  Application-specific
             roles are mapped to user's groups in glassfish-web.xml
             
+            6. Session ID
+            Can my code get the session id consistently?
+
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             
-            3.      Servlet protected 1-1
+            
+            6a. Servlet protected (web.xml and glassfish-web.xml)
+            
             Protect a servlet where internal `role` and external `group` have the same value.
             Use web.xml and glassfish-web.xml
-
+            
+            
             4.      Servlet protected 1-2
             Protect a servlet where internal `role` and external `group` have the same value.
             Use @Annotations and glassfish-web.xml
@@ -98,6 +104,7 @@
         <module>04-jaspic-isuserinrole-webxml</module>
         <module>05-japsic-isuserinrole-declareroles</module>
         <module>05-jaspic-isuserinrole-glassfishwebxml</module>
+        <module>06-jaspic-sessionid</module>
     </modules>
     <dependencies>
         <dependency>
