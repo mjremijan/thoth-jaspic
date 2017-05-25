@@ -37,8 +37,18 @@
             Application-specific, valid roles are in web.xml.  Application-specific
             roles are mapped to user's groups in glassfish-web.xml
             
-            6. Session ID
+            [DONE] 6. Session ID
             Can my code get the session id consistently?
+            
+            7. Multiple Requests
+            If request 'A' sets the principal, can I make requests 'B', 'C', and
+            'D' and maintain that principal across the requests?
+            
+            8a. Servlet protected (web.xml)
+            Have a servlet that's public which any role may access and 
+            one that's private which only application-specific role (vorlon)
+            may access.  The applicaiton-specific role declared in web.xml.  
+            No identity-management group in glassfish-web.xml.
 
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             
@@ -105,6 +115,8 @@
         <module>05-japsic-isuserinrole-declareroles</module>
         <module>05-jaspic-isuserinrole-glassfishwebxml</module>
         <module>06-jaspic-sessionid</module>
+        <module>07-jaspic-servlet-webxml</module>
+        <module>07-jaspic-multiplerequests</module>
     </modules>
     <dependencies>
         <dependency>
