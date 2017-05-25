@@ -56,7 +56,7 @@ public class TestCallbackBuilder {
             if (username != null && groups != null) {
                 log.info(String.format("SESSION username=\"%s\"", username));
                 log.info(String.format("SESSION groups=\"%s\"", groups));
-                log.info(String.format("Create Callback from SESSION %s", MyReflectionToStringBuilder.toString(principal)));
+                log.info(String.format("Create Callback from SESSION"));
                 callback = new Callback[]{
                       new CallerPrincipalCallback(clientSubject, username)
                     , new GroupPrincipalCallback(clientSubject, groups.split(","))
@@ -70,7 +70,7 @@ public class TestCallbackBuilder {
             if (groups != null) {
                 log.info(String.format("REQUEST username=\"%s\"",username));
                 log.info(String.format("REQUEST groups=\"%s\"",groups));
-                log.info(String.format("Create Callback from REQUEST %s", MyReflectionToStringBuilder.toString(principal)));
+                log.info(String.format("Create Callback from REQUEST"));
                 callback = new Callback[]{
                       new CallerPrincipalCallback(clientSubject, username)
                     , new GroupPrincipalCallback(clientSubject, groups.split(","))
