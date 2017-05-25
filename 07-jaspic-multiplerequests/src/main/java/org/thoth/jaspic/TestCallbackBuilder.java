@@ -36,6 +36,8 @@ public class TestCallbackBuilder {
 
     public Callback[] build() {
         log.info(String.format("ENTER build()"));
+        
+        log.info(String.format("SESSION ID=%s", session.getId()));
 
         Callback[] callback = null;
 

@@ -10,6 +10,9 @@
     </p>
     <blockquote>
         <p>
+            &nbsp;&nbsp;<a href="clear.jsp">Clear user/session info</a>
+        </p>
+        <p>
             <b>Principal Information</b>
         </p>
         <p>

@@ -53,7 +53,6 @@
                     <input type="text" name="roles" /><br />
                     <br />
                     <input type="submit" value="Submit" /> 
-                    &nbsp;&nbsp;<a href="clear.jsp">Clear</a>
                 </form>                
             </p>
             
