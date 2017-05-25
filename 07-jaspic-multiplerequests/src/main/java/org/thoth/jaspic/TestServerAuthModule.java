@@ -95,7 +95,7 @@ public class TestServerAuthModule implements ServerAuthModule {
         }
 
         // *********************************************************************
-        messageInfo.getMap().put("javax.servlet.http.registerSession", Boolean.TRUE.toString());
+        //messageInfo.getMap().put("javax.servlet.http.registerSession", Boolean.TRUE.toString());
 
         Callback[] callback
             = new TestCallbackBuilder(request, clientSubject).build();
