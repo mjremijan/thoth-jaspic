@@ -8,7 +8,9 @@
     </parent>
         
     <artifactId>02-jaspic-helloworld</artifactId>
-    <packaging>war</packaging>        
+    <packaging>war</packaging>    
+    
+    <name>thoth-jaspic: ${project.artifactId}</name>    
                                                                 
     <build>
         <finalName>${project.artifactId}</finalName>

@@ -10,6 +10,8 @@
     <artifactId>04-jaspic-isuserinrole-webxml</artifactId>
     <packaging>war</packaging>
     
+    <name>thoth-jaspic: ${project.artifactId}</name>
+    
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>    

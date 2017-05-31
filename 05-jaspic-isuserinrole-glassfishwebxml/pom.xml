@@ -10,8 +10,9 @@
     <artifactId>05-jaspic-isuserinrole-glassfishwebxml</artifactId>
     <packaging>war</packaging>
     
+    <name>thoth-jaspic: ${project.artifactId}</name>
+    
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>
-    <name>05-jaspic-isuserinrole-glassfishwebxml</name>
 </project>

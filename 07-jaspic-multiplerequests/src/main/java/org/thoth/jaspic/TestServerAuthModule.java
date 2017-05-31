@@ -2,7 +2,6 @@ package org.thoth.jaspic;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.util.Enumeration;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.Subject;
@@ -15,13 +14,10 @@ import static javax.security.auth.message.AuthStatus.SEND_SUCCESS;
 import static javax.security.auth.message.AuthStatus.SUCCESS;
 import javax.security.auth.message.MessageInfo;
 import javax.security.auth.message.MessagePolicy;
-import javax.security.auth.message.callback.CallerPrincipalCallback;
-import javax.security.auth.message.callback.GroupPrincipalCallback;
 import javax.security.auth.message.config.ServerAuthContext;
 import javax.security.auth.message.module.ServerAuthModule;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 public class TestServerAuthModule implements ServerAuthModule {
@@ -35,24 +31,17 @@ public class TestServerAuthModule implements ServerAuthModule {
     @Override
     @SuppressWarnings("unchecked")
     public void initialize(MessagePolicy requestPolicy, MessagePolicy responsePolicy, CallbackHandler handler, @SuppressWarnings("rawtypes") Map options) throws AuthException {
-        log.info(String.format("ENTER initialize(...)"));
-        log.info(String.format("requestPolicy=%s", MyReflectionToStringBuilder.toString(requestPolicy)));
-        log.info(String.format("responsePolicy=%s", MyReflectionToStringBuilder.toString(responsePolicy)));
-        log.info(String.format("handler=%s", MyReflectionToStringBuilder.toString(handler)));
-        log.info(String.format("options=%s", MyReflectionToStringBuilder.toString(options)));
-
         this.handler = handler;
         this.options = options;
     }
 
     /**
-     * A Servlet Container Profile compliant implementation should return
-     * HttpServletRequest and HttpServletResponse, so the delegation class
-     * {@link ServerAuthContext} can choose the right SAM to delegate to.
+     * A Servlet Container Profile compliant implementation should return HttpServletRequest and
+     * HttpServletResponse, so the delegation class {@link ServerAuthContext} can choose the right
+     * SAM to delegate to.
      */
     @Override
     public Class<?>[] getSupportedMessageTypes() {
-        log.info(String.format("ENTER getSupportedMessageTypes() %s", MyReflectionToStringBuilder.toString(supportedMessageTypes)));
         return supportedMessageTypes;
     }
 
@@ -63,42 +52,9 @@ public class TestServerAuthModule implements ServerAuthModule {
         log.info(String.format("clientSubject=%s", MyReflectionToStringBuilder.toString(clientSubject)));
         log.info(String.format("serviceSubject=%s", MyReflectionToStringBuilder.toString(serviceSubject)));
 
-        HttpServletRequest request
-            = (HttpServletRequest) messageInfo.getRequestMessage();
-        HttpServletResponse response
-            = (HttpServletResponse) messageInfo.getResponseMessage();
-
-        {
-            StringBuilder sp = new StringBuilder("::HEADERS::\n");
-            Enumeration<String> names
-                = request.getHeaderNames();
-
-            while (names.hasMoreElements()) {
-                String name = names.nextElement();
-                String valu = request.getHeader(name);
-                sp.append(String.format("  NAME=\"%s\", VALUE=\"%s\"\n", name, valu));
-            }
-            log.info(String.format("%n%s", sp.toString()));
-        }
-
-        {
-            StringBuilder sp = new StringBuilder("::PARAMETERS::\n");
-            Enumeration<String> names
-                = request.getParameterNames();
-
-            while (names.hasMoreElements()) {
-                String name = names.nextElement();
-                String valu = request.getParameter(name);
-                sp.append(String.format("  NAME=\"%s\", VALUE=\"%s\"\n", name, valu));
-            }
-            log.info(String.format("%n%s", sp.toString()));
-        }
-
         // *********************************************************************
-        //messageInfo.getMap().put("javax.servlet.http.registerSession", Boolean.TRUE.toString());
-
         Callback[] callback
-            = new TestCallbackBuilder(request, clientSubject).build();
+            = new TestCallbackBuilder(messageInfo,clientSubject).build();
 
         if (callback != null) {
             try {
@@ -113,11 +69,6 @@ public class TestServerAuthModule implements ServerAuthModule {
 
     @Override
     public AuthStatus secureResponse(MessageInfo messageInfo, Subject serviceSubject) throws AuthException {
-        log.info(String.format("ENTER secureResponse(...)"));
-        log.info(String.format("messageInfo=%s", MyReflectionToStringBuilder.toString(messageInfo)));
-        log.info(String.format("serviceSubject=%s", MyReflectionToStringBuilder.toString(serviceSubject)));
-
-        log.info(String.format("return SEND_SUCCESS"));
         return SEND_SUCCESS;
     }
 
@@ -127,16 +78,11 @@ public class TestServerAuthModule implements ServerAuthModule {
      */
     @Override
     public void cleanSubject(MessageInfo messageInfo, Subject subject) throws AuthException {
-        log.info(String.format("ENTER cleanSubject(...)"));
-        log.info(String.format("messageInfo=%s", MyReflectionToStringBuilder.toString(messageInfo)));
-        log.info(String.format("subject=%s", MyReflectionToStringBuilder.toString(subject)));
 
         if (subject != null) {
-            log.info(String.format("Subject is not null"));
             Set<Principal> principals
                 = subject.getPrincipals();
             if (principals != null) {
-                log.info(String.format("Principals is not null"));
                 principals.clear();
             }
         }

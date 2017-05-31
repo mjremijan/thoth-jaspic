@@ -7,116 +7,91 @@ import javax.security.auth.message.config.AuthConfigFactory;
 import javax.security.auth.message.config.AuthConfigProvider;
 import javax.security.auth.message.config.ClientAuthConfig;
 import javax.security.auth.message.config.ServerAuthConfig;
-import org.apache.log4j.Logger;
 
 public class TestAuthConfigProvider implements AuthConfigProvider {
- 
-    private static final Logger log = Logger.getLogger(TestAuthConfigProvider.class);
-    
-    private static final String 
-        CALLBACK_HANDLER_PROPERTY_NAME = "authconfigprovider.client.callbackhandler";
- 
+
+    private static final String CALLBACK_HANDLER_PROPERTY_NAME = "authconfigprovider.client.callbackhandler";
+
     private Map<String, String> providerProperties;
- 
+
     public TestAuthConfigProvider() {
-        log.info(String.format("ENTER no-arg constructor"));
     }
- 
+
     /**
      * Constructor with signature and implementation that's required by API.
-     * 
+     *
      * @param properties
      * @param factory
      */
     public TestAuthConfigProvider(Map<String, String> properties,
-            AuthConfigFactory factory) {
-        
-        log.info(String.format("ENTER constructor(Map<String,String>, AuthConfigFactory)"));
-        log.info(String.format("properties=%s", MyReflectionToStringBuilder.toString(properties)));
-        log.info(String.format("factory=%s", MyReflectionToStringBuilder.toString(factory)));
-        
-        
+        AuthConfigFactory factory) {
+
         this.providerProperties = properties;
- 
+
         // API requires self registration if factory is provided. Not clear
         // where the "layer" (2nd parameter)
         // and especially "appContext" (3rd parameter) values have to come from
         // at this place.
         if (factory != null) {
-            log.info(String.format("Factory is null, call factory#registerConfigProvider() "));
             factory.registerConfigProvider(
                 this, null, null,
                 "Auto registration"
             );
         }
     }
- 
+
     /**
-     * The actual factory method that creates the factory used to eventually
-     * obtain the delegate for a SAM.
+     * The actual factory method that creates the factory used to eventually obtain the delegate for
+     * a SAM.
      */
     @Override
     public ServerAuthConfig getServerAuthConfig(String layer,
-            String appContext, CallbackHandler handler) throws AuthException,
-            SecurityException {
-        
-        log.info(String.format("ENTER getServerAuthConfig()"));
-        log.info(String.format("layer=%s", layer));
-        log.info(String.format("appContext=%s", appContext));
-        log.info(String.format("handler=%s", MyReflectionToStringBuilder.toString(handler)));
-        
+        String appContext, CallbackHandler handler) throws AuthException,
+        SecurityException {
+
         return new TestServerAuthConfig(layer, appContext,
-                handler == null ? createDefaultCallbackHandler() : handler,
-                providerProperties);
+            handler == null ? createDefaultCallbackHandler() : handler,
+            providerProperties);
     }
- 
+
     @Override
     public ClientAuthConfig getClientAuthConfig(String layer,
-            String appContext, CallbackHandler handler) throws AuthException,
-            SecurityException {
-        log.info(String.format("ENTER getClientAuthConfig()"));
-        log.info(String.format("layer=%s", layer));
-        log.info(String.format("appContext=%s", appContext));
-        log.info(String.format("handler=%s", MyReflectionToStringBuilder.toString(handler)));
-        
+        String appContext, CallbackHandler handler) throws AuthException,
+        SecurityException {
+
         return null;
     }
- 
+
     @Override
     public void refresh() {
     }
- 
+
     /**
      * Creates a default callback handler via the system property
-     * "authconfigprovider.client.callbackhandler", as seemingly required by the
-     * API (API uses wording "may" create default handler).
-     * 
+     * "authconfigprovider.client.callbackhandler", as seemingly required by the API (API uses
+     * wording "may" create default handler).
+     *
      * @return
      * @throws AuthException
      */
     private CallbackHandler createDefaultCallbackHandler() throws AuthException {
-        
-        log.info(String.format("ENTER createDefaultCallbackHandler()"));
-        
+
         String callBackClassName = System
-                .getProperty(CALLBACK_HANDLER_PROPERTY_NAME);
-        log.info(String.format("callBackClassName=%s", callBackClassName));
-        
+            .getProperty(CALLBACK_HANDLER_PROPERTY_NAME);
+
         if (callBackClassName == null) {
             throw new AuthException(
-                    "No default handler set via system property: "
-                            + CALLBACK_HANDLER_PROPERTY_NAME);
+                "No default handler set via system property: "
+                + CALLBACK_HANDLER_PROPERTY_NAME);
         }
- 
+
         try {
-            log.info(String.format("Create default callback handler"));
-            
             return (CallbackHandler) Thread.currentThread()
-                    .getContextClassLoader().loadClass(callBackClassName)
-                    .newInstance();
+                .getContextClassLoader().loadClass(callBackClassName)
+                .newInstance();
         } catch (Exception e) {
             throw new AuthException(e.getMessage());
         }
     }
- 
+
 }

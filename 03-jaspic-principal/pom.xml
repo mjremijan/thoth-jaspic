@@ -10,6 +10,8 @@
     <artifactId>03-jaspic-principal</artifactId>
     <packaging>war</packaging>
 
+    <name>thoth-jaspic: ${project.artifactId}</name>
+    
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>

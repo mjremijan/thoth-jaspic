@@ -39,6 +39,9 @@
                 Yes!
             </p>
             <p>
+                Session ID is: <%= session.getId() %>
+            </p>
+            <p>
                 <b>1st</b>, use the form below to create a <span style="font-family: courier">Principal</span>
                 with one or more of the following valid roles:
             </p>

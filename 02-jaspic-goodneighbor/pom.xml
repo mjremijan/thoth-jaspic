@@ -8,6 +8,7 @@
     </parent>
     
     <artifactId>02-jaspic-goodneighbor</artifactId>
+    <name>thoth-jaspic: ${project.artifactId}</name>
     <packaging>war</packaging>
     
     <properties>

@@ -10,8 +10,9 @@
     <artifactId>07-jaspic-multiplerequests</artifactId>
     <packaging>war</packaging>
     
+    <name>thoth-jaspic: ${project.artifactId}</name>
+    
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>
-    <name>07-jaspic-multiplerequests</name>
 </project>

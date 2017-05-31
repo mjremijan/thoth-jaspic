@@ -8,6 +8,7 @@
     </parent>
     
     <artifactId>01-jaspic-embedded</artifactId>
+    <name>thoth-jaspic: ${project.artifactId}</name>
     <packaging>war</packaging>
 
     <build>

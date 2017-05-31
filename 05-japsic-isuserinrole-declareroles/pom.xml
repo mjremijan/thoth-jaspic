@@ -10,8 +10,9 @@
     <artifactId>05-jaspic-isuserinrole-declareroles</artifactId>
     <packaging>war</packaging>
     
+    <name>thoth-jaspic: ${project.artifactId}</name>
+    
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>
-    <name>05-jaspic-isuserinrole-declareroles</name>
 </project>

@@ -10,8 +10,9 @@
     <artifactId>06-jaspic-sessionid</artifactId>
     <packaging>war</packaging>
     
+    <name>thoth-jaspic: ${project.artifactId}</name>
+    
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>
-    <name>06-jaspic-sessionid</name>
 </project>
