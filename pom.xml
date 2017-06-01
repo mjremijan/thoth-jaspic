@@ -44,36 +44,21 @@
             If request 'A' sets the principal, can I make requests 'B', 'C', and
             'D' and maintain that principal across the requests?
             
-            [DONE] 8a. Servlet protected (web.xml)
-            Can there be a servlet that's public which any role may access and 
-            one that's private which only an application-specific role may access?
-            Everything is declared in web.xml. No 
-            identity-management group is in glassfish-web.xml.
+            [DONE] 8a. Servlet protected (web.xml and glassfish-web.xml)
+            Can there be a servlet that's public which any group may access and
+            another servlet that's private which is accessible only by a specific 
+            identity management group?
+            Everything is declared in web.xml and glassfish-web.xml. 
+            
+            [DONE] 8b. Servlet protected (annotations)
+            Can there be a servlet that's public which any group may access and
+            another servlet that's private which is accessible only by a specific 
+            identity management group?
+            Everything is declared in annotations except for the
+            identity-management groups in and glassfish-web.xml.
 
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             
-            
-            6a. Servlet protected (web.xml and glassfish-web.xml)
-            
-            Protect a servlet where internal `role` and external `group` have the same value.
-            Use web.xml and glassfish-web.xml
-            
-            
-            4.      Servlet protected 1-2
-            Protect a servlet where internal `role` and external `group` have the same value.
-            Use @Annotations and glassfish-web.xml
-
-            5.      Servlet protected 2-1
-            Protect a servlet where internal `role` is application specific and is mapped to external `group`.
-            Use web.xml and glassfish-web.xml
-
-            6.      Servlet protected 2-2
-            Protect a servlet where internal `role` is application specific and is mapped to external `group`.
-            Use @ Annotations and glassfish-web.xml
-
-            7.      Servlet public and private
-            Application has both public and private servlets.
-
             8.      JSP protected 1-1
             Protect a JSP where internal `role` and external `group` have the same value.
             Use web.xml and glassfish-web.xml
@@ -118,6 +103,7 @@
         <module>07-jaspic-servlet-webxml</module>
         <module>07-jaspic-multiplerequests</module>
         <module>08-jaspic-servlet-protected-webxml</module>
+        <module>08-jaspic-servlet-protected-annotations</module>
     </modules>
     <dependencies>
         <dependency>
