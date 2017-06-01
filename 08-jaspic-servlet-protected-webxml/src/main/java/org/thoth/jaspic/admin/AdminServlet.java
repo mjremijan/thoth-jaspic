@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.thoth.jaspic.login;
+package org.thoth.jaspic.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/bin/login"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "AdminServlet", urlPatterns = {"/sbin/admin"})
+public class AdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("WEB-INF/login/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/admin/admin.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

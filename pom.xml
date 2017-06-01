@@ -44,7 +44,7 @@
             If request 'A' sets the principal, can I make requests 'B', 'C', and
             'D' and maintain that principal across the requests?
             
-            8a. Servlet protected (web.xml)
+            [DONE] 8a. Servlet protected (web.xml)
             Can there be a servlet that's public which any role may access and 
             one that's private which only an application-specific role may access?
             Everything is declared in web.xml. No 

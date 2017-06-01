@@ -1,27 +1,21 @@
 <!DOCTYPE html>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Calendar" %>
-<%@ page import="java.io.File" %>
-
 <html>
     <head>
         <title><%= pageContext.findAttribute("maven.project.artifactId") %> Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            a {color:blue;}
+        </style>            
     </head>
     <body>
-        <h1><%= pageContext.findAttribute("maven.project.artifactId") %> (Login)</h1>
-        <blockquote>
-            <p>
-                Timestamp: <%= new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(Calendar.getInstance().getTime())%>
-                Log file: <%= System.getProperty("com.sun.aas.instanceRoot") + File.separator + "logs" + File.separator + pageContext.findAttribute("maven.project.artifactId")  + ".log"%>
-            </p>
-        </blockquote>
+        <h1><%= pageContext.findAttribute("maven.project.artifactId") %> (Index)</h1>
+        <jsp:include page="/meta.jsp"/>
 
         
         <h2>Test Goals</h2>
         <ul>
             <% String q1 = "Can there be a servlet that's public which any role may access and"; %> 
-            <% q1 += " one that's private which only an application-specific role may access?"; %>
+            <% q1 += " another servlet that's private which is accessiable only by an application-specific role?"; %>
             <% q1 += " Everything is declared in web.xml. No"; %> 
             <% q1 += " identity-management group is in glassfish-web.xml."; %>
             
@@ -46,22 +40,22 @@
                 you do not have the <span style="font-family: courier">ADMIN</span> role.
             </p>
             
-            <table>
+            <table border="1">
                 <tr>
                     <th>Servlet</th>
-                    <th>Accessable</th>
+                    <th>Accessible</th>
                     <th>Explaination</th>
                 </tr>
                 <tr>
                     <td><a href="<%= request.getContextPath() %>/bin/about">AboutServlet</a></td>
                     <td>Yes</td>
-                    <td>This servlet is not protected so is accessable to anyone.</td>
+                    <td>This servlet is not protected so is accessible to anyone.</td>
                 </tr>
                 <tr>
                     <td><a href="<%= request.getContextPath() %>/sbin/manager">ManagerServlet</a></td>
                     <td>Yes</td>
                     <td>
-                        This servlet accessable because you have the 
+                        This servlet accessible because you have the 
                         <span style="font-family: courier">MANAGER</span> 
                         role.
                     </td>
@@ -70,7 +64,7 @@
                     <td><a href="<%= request.getContextPath() %>/sbin/admin">AdminServlet</a></td>
                     <td>No</td>
                     <td>
-                        This servlet is <b>not</b> accessable because you do <b>not</b> have the 
+                        This servlet is <b>not</b> accessible because you do <b>not</b> have the 
                         <span style="font-family: courier">ADMIN</span> 
                         role.
                     </td>
@@ -78,6 +72,6 @@
             </table>
         </blockquote>
                     
-        <jsp:include page="info.jsp"/>
+        <jsp:include page="/info.jsp"/>
     </body>
 </html>
