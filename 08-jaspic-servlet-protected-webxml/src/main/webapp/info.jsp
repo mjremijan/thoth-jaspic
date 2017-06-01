@@ -10,16 +10,14 @@
     <%
         String roles = String.valueOf(session.getAttribute("ferris.auth.groups"));
         if (roles != null) {
-            String[] tokens = roles.split(","); 
     %>
             <table border="1">
                 <caption>Roles</caption>
-                <%  for (String token : tokens) {%>
                 <tr>
-                    <td style="font-family:courier">Request#isUserInRole("<%= token%>")&nbsp;</td>
-                    <td style="font-family:courier"><%= request.isUserInRole(token)%></td>
+                    <% String managerRole = "manager.ManagerServlet"; %>
+                    <td style="font-family:courier">Request#isUserInRole("<%= managerRole %>")&nbsp;</td>
+                    <td style="font-family:courier"><%= request.isUserInRole(managerRole)%></td>
                 </tr>
-                <% } %>
             </table>
         <% } %>
 </blockquote>

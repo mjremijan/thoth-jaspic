@@ -18,8 +18,9 @@
             <p>
                 This is the admin page loaded by AdminServlet.  If you are seeing 
                 this page, something has gone terribly wrong!  This servlet is 
-                protected by the <span style="font-family: courier">ADMIN</span> role. 
-                You do <b>not</b> have this role so you should <b>not</b> be able
+                protected by the <span style="font-family: courier">GROUP_ADMINS</span> 
+                identity management group.
+                You are <b>not</b> in this group so you should <b>not</b> be able
                 to see this page!
             </p>
         </blockquote>

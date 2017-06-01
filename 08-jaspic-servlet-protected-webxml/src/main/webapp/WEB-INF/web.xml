@@ -22,7 +22,7 @@
             <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>MANAGER</role-name>
+            <role-name>manager.ManagerServlet</role-name>
         </auth-constraint>
     </security-constraint>
     
@@ -35,16 +35,16 @@
             <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>ADMIN</role-name>
+            <role-name>admin.AdminServlet</role-name>
         </auth-constraint>
     </security-constraint>
     
     
     <security-role>
-        <role-name>MANAGER</role-name>
+        <role-name>manager.ManagerServlet</role-name>
     </security-role>
     <security-role>
-        <role-name>ADMIN</role-name>
+        <role-name>admin.AdminServlet</role-name>
     </security-role>
 
 </web-app>

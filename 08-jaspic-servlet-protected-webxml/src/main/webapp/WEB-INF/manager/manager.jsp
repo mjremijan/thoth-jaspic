@@ -20,8 +20,8 @@
             </p>
             <p>
                 This is the manager page loaded by ManagerServlet.  It is protected
-                by the <span style="font-family: courier">MANAGER</span> role. You 
-                have this role so you can see this page!
+                by the <span style="font-family: courier">GROUP_MANAGERS</span> identity management group. You 
+                in this group so you can see this page!
             </p>
             <p>
                 <a href="<%= request.getContextPath() %>/">&lt;&lt; back</a>
