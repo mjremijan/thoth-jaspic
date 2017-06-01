@@ -46,14 +46,14 @@ public class TestCallbackBuilder {
 
         Callback[] callback = null;
 
-//        if (callback == null) {
-//            if (principal != null) {
-//                log.info(String.format("Create Callback from Principal %s", MyReflectionToStringBuilder.toString(principal)));
-//                callback = new Callback[]{
-//                    new CallerPrincipalCallback(clientSubject, principal)
-//                };
-//            }
-//        }
+        if (callback == null) {
+            if (principal != null) {
+                log.info(String.format("Create Callback from Principal %s", MyReflectionToStringBuilder.toString(principal)));
+                callback = new Callback[]{
+                    new CallerPrincipalCallback(clientSubject, principal)
+                };
+            }
+        }
 
         if (callback == null) {
             String username = "thoth-jaspic-usr";
