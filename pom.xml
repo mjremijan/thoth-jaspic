@@ -40,15 +40,15 @@
             [DONE] 6. Session ID
             Can my code get the session id consistently?
             
-            7. Multiple Requests
+            [DONE] 7. Multiple Requests
             If request 'A' sets the principal, can I make requests 'B', 'C', and
             'D' and maintain that principal across the requests?
             
             8a. Servlet protected (web.xml)
-            Have a servlet that's public which any role may access and 
-            one that's private which only application-specific role (vorlon)
-            may access.  The applicaiton-specific role declared in web.xml.  
-            No identity-management group in glassfish-web.xml.
+            Can there be a servlet that's public which any role may access and 
+            one that's private which only an application-specific role may access?
+            Everything is declared in web.xml. No 
+            identity-management group is in glassfish-web.xml.
 
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             
@@ -117,6 +117,7 @@
         <module>06-jaspic-sessionid</module>
         <module>07-jaspic-servlet-webxml</module>
         <module>07-jaspic-multiplerequests</module>
+        <module>08-jaspic-servlet-protected-webxml</module>
     </modules>
     <dependencies>
         <dependency>
