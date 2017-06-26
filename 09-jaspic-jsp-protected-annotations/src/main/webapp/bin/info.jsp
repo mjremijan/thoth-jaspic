@@ -14,9 +14,19 @@
             <table border="1">
                 <caption>Roles</caption>
                 <tr>
-                    <% String managerRole = "ManagerRole"; %>
-                    <td class="code">Request#isUserInRole("<%= managerRole %>")&nbsp;</td>
-                    <td class="code"><%= request.isUserInRole(managerRole)%></td>
+                    <% String theRole = "ManagerRole"; %>
+                    <td class="code">Request#isUserInRole("<%= theRole %>")&nbsp;</td>
+                    <td class="code"><%= request.isUserInRole(theRole)%></td>
+                </tr>
+                <tr>
+                    <% theRole = "StockholderRole"; %>
+                    <td class="code">Request#isUserInRole("<%= theRole %>")&nbsp;</td>
+                    <td class="code"><%= request.isUserInRole(theRole)%></td>
+                </tr>
+                <tr>
+                    <% theRole = "AdminRole"; %>
+                    <td class="code">Request#isUserInRole("<%= theRole %>")&nbsp;</td>
+                    <td class="code"><%= request.isUserInRole(theRole)%></td>
                 </tr>
             </table>
         <% } %>

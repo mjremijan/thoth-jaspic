@@ -19,7 +19,7 @@
                 Success!
             </p>
             <p>
-                This is the stockholder page loaded by /stockholder/stockholder.jsp.  It is protected
+                This is the stockholder page loaded by /WEB-INF/stockholder/stockholder.jsp.  It is protected
                 by the <span style="font-family: courier">StockholderServlet</span>  and
                 the <span style="font-family: courier">GROUP_STOCKHOLDERS</span> 
                 identity management group. You are
