@@ -47,15 +47,27 @@
             [DONE] 8a. Servlet protected (web.xml and glassfish-web.xml)
             Can there be a servlet that's public which any group may access and
             another servlet that's private which is accessible only by a specific 
-            identity management group?
-            Everything is declared in web.xml and glassfish-web.xml. 
+            identity management group?Everything is declared in web.xml and 
+            glassfish-web.xml. 
             
             [DONE] 8b. Servlet protected (annotations)
             Can there be a servlet that's public which any group may access and
             another servlet that's private which is accessible only by a specific 
-            identity management group?
-            Everything is declared in annotations except for the
-            identity-management groups in and glassfish-web.xml.
+            identity management group? Everything is declared in annotations 
+            except for the identity-management groups in and glassfish-web.xml.
+            
+            [DONE] 9a. JSP protected (web.xml and glassfish-web.xml)
+            Can there be a JSP that's public which any group may access and
+            another JSP that's private which is accessible only by a specific 
+            identity management group? Everything is declared in web.xml and 
+            glassfish-web.xml.
+            
+            [DONE] 9b. JSP protected (annotations)
+            Can there be a JSP that's public which any group may access and
+            another JSP that's private which is accessible only by a specific 
+            identity management group? Everything is declared in annotations 
+            except for the identity-management groups in glassfish-web.xml.
+            
 
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             
@@ -85,6 +97,13 @@
             web.xml?
 
             15. JAX-RS...JWT (web tokens)
+            
+            16. How do you get the security "context" for each type of container?
+             - servlet
+             - ejb
+             - jsp
+             - jax-rs
+             - jsf
     -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -100,10 +119,11 @@
         <module>05-japsic-isuserinrole-declareroles</module>
         <module>05-jaspic-isuserinrole-glassfishwebxml</module>
         <module>06-jaspic-sessionid</module>
-        <module>07-jaspic-servlet-webxml</module>
         <module>07-jaspic-multiplerequests</module>
         <module>08-jaspic-servlet-protected-webxml</module>
         <module>08-jaspic-servlet-protected-annotations</module>
+        <module>09-jaspic-jsp-protected-webxml</module>
+        <module>09-jaspic-jsp-protected-annotations</module>
     </modules>
     <dependencies>
         <dependency>
