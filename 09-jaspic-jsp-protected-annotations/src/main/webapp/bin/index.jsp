@@ -57,8 +57,8 @@
             </p>
             <p>
                 So long story short, if the URL you want to protect isn't 
-                mapped to a servlet, then you can't go all annotations and
-                using the <span class="code">web.xml</span>
+                mapped to a servlet, then you can't go all annotations.  The 
+                <span class="code">web.xml</span>
                 <span class="code">&lt;security-constraint&gt;</span> tag is 
                 still necessary.
             </p>
@@ -181,17 +181,17 @@
                         </span>
                         <br />
                         Because the stockholder pages are <b>not</b> directly 
-                        accessible, a <span class="code">StockholderServlet</code>
+                        accessible, a <span class="code">StockholderServlet</span>
                         was created to "proxy" requests for these JSPs. This 
                         proxying allows configuration to get out of
                         <span class="code">web.xml</span> and instead reside
-                        completely in annotations.  The <span class="code">StockholderServlet</code>'s
+                        completely in annotations.  The <span class="code">StockholderServlet</span>'s
                         annotations are:<br /><br />
                         <span class="code">
                         @WebServlet(name = "StockholderServlet", urlPatterns = {"/stockholder/*"}) <br />
                         @ServletSecurity(@HttpConstraint(rolesAllowed = {"StockholderRole"})) <br />
                         </span>
-                        
+                        <br />
                         These annotations protect all browser URL requests to
                         <span class="code">/stockholder/*</span> with the
                         <span class="code">StockholderRole</span>.  Since

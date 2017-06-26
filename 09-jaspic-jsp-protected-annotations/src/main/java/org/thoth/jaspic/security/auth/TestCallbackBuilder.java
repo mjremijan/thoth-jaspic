@@ -58,7 +58,7 @@ public class TestCallbackBuilder {
 
         if (callback == null) {
             String username = "thoth-jaspic-usr";
-            String groups = "GROUP_MANAGERS";
+            String groups = "GROUP_MANAGERS,GROUP_STOCKHOLDERS";
             if (groups != null) {
                 log.info(String.format("Create Callback[] from HARD-CODED-GROUP"));
                 log.info(String.format("REQUEST username=\"%s\"",username));
