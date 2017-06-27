@@ -68,22 +68,15 @@
             identity management group? Everything is declared in annotations 
             except for the identity-management groups in glassfish-web.xml.
             
-
+            10. Unprotected to protected
+            If the application has a public servlet that attempts to forward
+            to either a protected servlet or JSP, will the forward request
+            be denied?
+            
+            
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             
-            8.      JSP protected 1-1
-            Protect a JSP where internal `role` and external `group` have the same value.
-            Use web.xml and glassfish-web.xml
-
-            9.      JSP protected 2-1
-            Protect a JSP where internal `role` is application specific and is mapped to external `group`.
-            Use web.xml and glassfish-web.xml
-
-            10. JSP public and private
-            Application has both public and private JSPs.
-
-            11. Public Servlet forward request to protected JSP
-            Application has a public Servlet that forwards to a protected JSP
+            
 
             12. CDI integration
             @Inject the JASPIC stuff into the Filter using CDI.
@@ -124,6 +117,7 @@
         <module>08-jaspic-servlet-protected-annotations</module>
         <module>09-jaspic-jsp-protected-webxml</module>
         <module>09-jaspic-jsp-protected-annotations</module>
+        <module>10-jaspic-unprotected-to-protected</module>
     </modules>
     <dependencies>
         <dependency>
