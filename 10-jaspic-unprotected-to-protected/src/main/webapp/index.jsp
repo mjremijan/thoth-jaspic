@@ -27,7 +27,7 @@
         <h2>Test Results</h2>
         <blockquote>
             <p>
-                Yes!
+                No!  In general the request will NOT be denied, but Yes!, you can programmatically make it denied
             </p>
             
             <table border="1">
