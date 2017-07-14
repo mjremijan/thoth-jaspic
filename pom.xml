@@ -68,15 +68,13 @@
             identity management group? Everything is declared in annotations 
             except for the identity-management groups in glassfish-web.xml.
             
-            10. Unprotected to protected
+            [DONE] 10. Unprotected to protected
             If the application has a public servlet that attempts to forward
             to either a protected servlet or JSP, will the forward request
             be denied?
             
             
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            
-            
 
             12. CDI integration
             @Inject the JASPIC stuff into the Filter using CDI.
