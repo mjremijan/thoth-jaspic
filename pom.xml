@@ -73,11 +73,18 @@
             to either a protected servlet or JSP, will the forward request
             be denied?
             
+            11. CDI integration
+            When I get to important code, can I use the CDI classes
+            to get a CDI bean?
             
+            12. EJB integration
+            Inject EJB into a Servlet
+            Have EJB return string o it's security context stuff
+            EJB method call fails if not RolesAllowed?
+                                    
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-            12. CDI integration
-            @Inject the JASPIC stuff into the Filter using CDI.
+            
 
             13. JSF page protected
             Protect a JSF page that’s loaded with the default JSF controller
