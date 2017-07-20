@@ -81,19 +81,27 @@
             Inject EJB into a Servlet
             Have EJB return string o it's security context stuff
             EJB method call fails if not RolesAllowed?
-                                    
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
             
-
             13. JSF page protected
-            Protect a JSF page that’s loaded with the default JSF controller
-            web.xml?
-
-            14. JSF controller protected
-            Protect a JSF controller  
-            web.xml?
-
+            Protect a JSF page (protected.xhtml)
+            web.xml with security-constraint and roles
+            roles in Bean
+            glassfish-web.xml with identity-management groups
+            
+            13. JSF controller call protected
+            Can I protect an xhtml page call to a server-side controller bean method?
+            What's the URL of the call?
+            Does it go in web.xml with security-constraint and roles
+            roles in Bean
+            glassfish-web.xml with identity-management groups
+            
+            14. WebFilter work just as well?
+            Can I protect a Servlet without JASPIC and just use a WebFilter?
+            Use annotations for everything.
+            glassfish-web.xml with identity-management groups
+            
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        
             15. JAX-RS...JWT (web tokens)
             
             16. How do you get the security "context" for each type of container?
