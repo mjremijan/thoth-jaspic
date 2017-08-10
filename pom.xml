@@ -5,6 +5,7 @@
     <artifactId>thoth-jaspic</artifactId>
     <version>1.0.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <description>Research and Development on JASPIC (JSR 196)</description>
     
     <!--
         Areas of Research
@@ -73,32 +74,42 @@
             to either a protected servlet or JSP, will the forward request
             be denied?
             
-            11. CDI integration
-            When I get to important code, can I use the CDI classes
-            to get a CDI bean?
+            [DONE] 11. CDI integration
+            When I get to important code (the code I write to create
+            the Principal and groups) can I use the CDI to get an
+            instance of some object which will get the principal 
+            and group information for me?
             
-            12. EJB integration
-            Inject EJB into a Servlet
-            Have EJB return string o it's security context stuff
-            EJB method call fails if not RolesAllowed?
+            [DONE] 12. EJB integration
+            If I have an EJB which is protected by @RolesAllowed,
+            will the method call fail if I don't have that role?
+            Will it succeed if I do have that role?
             
-            13. JSF page protected
+            [DONE] 13. WebFilter work just as well?
+            Does proxying the HttpServletRequext with a @WebFilter work
+            just as well?
+            
+            14. JSF page protected
             Protect a JSF page (protected.xhtml)
             web.xml with security-constraint and roles
             roles in Bean
             glassfish-web.xml with identity-management groups
             
-            13. JSF controller call protected
+            15. JSF controller call protected
             Can I protect an xhtml page call to a server-side controller bean method?
             What's the URL of the call?
             Does it go in web.xml with security-constraint and roles
             roles in Bean
             glassfish-web.xml with identity-management groups
             
-            14. WebFilter work just as well?
-            Can I protect a Servlet without JASPIC and just use a WebFilter?
-            Use annotations for everything.
+            16. JSF ajax call protected
+            Can I protect an xhtml page call to a server-side controller bean method?
+            What's the URL of the call?
+            Does it go in web.xml with security-constraint and roles
+            roles in Bean
             glassfish-web.xml with identity-management groups
+            
+            
             
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         
@@ -131,6 +142,9 @@
         <module>09-jaspic-jsp-protected-webxml</module>
         <module>09-jaspic-jsp-protected-annotations</module>
         <module>10-jaspic-unprotected-to-protected</module>
+        <module>11-jaspic-get-cdi-bean</module>
+        <module>12-jaspic-ejb-integration</module>
+        <module>13-jaspic-wrapping-request-doesnt-work</module>
     </modules>
     <dependencies>
         <dependency>
