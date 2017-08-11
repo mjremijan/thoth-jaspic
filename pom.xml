@@ -94,12 +94,10 @@
             security-constraint, @DeclareRoles,
             and with identity-management groups in glassfish-web.xml?
             
-            15. JSF controller call protected
-            Can I protect an xhtml page call to a server-side controller bean method?
-            What's the URL of the call?
-            Does it go in web.xml with security-constraint and roles
-            roles in Bean
-            glassfish-web.xml with identity-management groups
+            [DONE] 15. JSF managed bean call protected
+            Can I protect a server-side JSF managed bean call.  In other words,
+            if my JSF page tries to call a bean method which it should not have
+            access to, will the method call fail?
             
             16. JSF ajax call protected
             Can I protect an xhtml page call to a server-side controller bean method?
@@ -145,6 +143,7 @@
         <module>12-jaspic-ejb-integration</module>
         <module>13-jaspic-wrapping-request-doesnt-work</module>
         <module>14-jaspic-jsfpage-protected-webxml</module>
+        <module>15-jaspic-managedbean-protected-webxml</module>
     </modules>
     <dependencies>
         <dependency>

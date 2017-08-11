@@ -27,3 +27,4 @@
 /12-jaspic-ejb-integration/target/
 /13-jaspic-wrapping-request-doesnt-work/target/
 /14-jaspic-jsfpage-protected-webxml/target/
+/15-jaspic-managedbean-protected-webxml/target/
