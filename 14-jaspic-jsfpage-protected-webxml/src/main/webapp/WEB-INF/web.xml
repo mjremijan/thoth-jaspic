@@ -15,13 +15,14 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
+        <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            15
+            20
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>index.jsf</welcome-file>
     </welcome-file-list>
 </web-app>
