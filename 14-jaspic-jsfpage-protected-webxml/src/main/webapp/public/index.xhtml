@@ -3,19 +3,46 @@
 <ui:composition 
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    template="./template.xhtml">
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    template="../WEB-INF/template.xhtml">
 
     <ui:define name="page_name">Index</ui:define>
     
     <ui:define name="test_goals">
         <p>
-            Can a JSF page be protected with security defined in <code>web.xml</code>?
+            Can I protect a JSF page with a <code>web.xml</code>
+            &lt;security-constraint&gt;, <code>@DeclareRoles</code>,
+            and with identity-management groups in <code>glassfish-web.xml</code>?
         </p>
     </ui:define>
     
     <ui:define name="test_results">
         <p>
-            We'll see!
+            <b>Yes!</b>
+        </p>
+        <p>
+            This page is <code>/public/index.xhtml</code> and there are no
+            security settings in <code>web.xml</code> for this directory.
+            So you can see this page fine.
+        </p>
+        <p>
+            The link below is to <code>/executive/index.xhtml</code>.
+            The <code>/executive</code> directory is protected by the 
+            <code>ExecutiveRole</code> role. So, if you click it, you'll get
+            the standard <code>HTTP Status 403 - Forbidden</code> page.
+        </p>
+        <p>
+            <h:link value="Executive page" outcome="/executive/index" />
+        </p>
+        
+        <p>
+            The link below is to <code>/customersupport/index.xhtml</code>.
+            The <code>/customersupport</code> directory is protected by the 
+            <code>CustomerSupportRole</code> role. You have this role, so
+            you should be able to access it with no problems.
+        </p>
+        <p>
+            <h:link value="Customer Support page" outcome="/customersupport/index" />
         </p>
     </ui:define>
     
@@ -39,9 +66,15 @@
             </a>
         </p>
         <p>
-            Thomas, D.  (2012, Septembe 23).  CSS - greater than selector - select items greater than N.  Retrieved from 
+            Thomas, D.  (2012, September 23).  CSS - greater than selector - select items greater than N.  Retrieved from 
             <a href="https://stackoverflow.com/questions/12554098/css-greater-than-selector-select-items-greater-than-n">
                 https://stackoverflow.com/questions/12554098/css-greater-than-selector-select-items-greater-than-n
+            </a>
+        </p>
+        <p>
+            BalusC.  (2013, September 18).  Create a link to a JSF page in a subfolder.  Retrieved from 
+            <a href="https://stackoverflow.com/questions/18868939/create-a-link-to-a-jsf-page-in-a-subfolder">
+                https://stackoverflow.com/questions/18868939/create-a-link-to-a-jsf-page-in-a-subfolder
             </a>
         </p>
     </ui:define>

@@ -89,11 +89,10 @@
             Does proxying the HttpServletRequext with a @WebFilter work
             just as well?
             
-            14. JSF page protected
-            Protect a JSF page (protected.xhtml)
-            web.xml with security-constraint and roles
-            roles in Bean
-            glassfish-web.xml with identity-management groups
+            [DONE] 14. JSF page protected
+            Can I protect a JSF page with a web.xml
+            security-constraint, @DeclareRoles,
+            and with identity-management groups in glassfish-web.xml?
             
             15. JSF controller call protected
             Can I protect an xhtml page call to a server-side controller bean method?
