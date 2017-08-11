@@ -26,3 +26,4 @@
 /11-jaspic-get-cdi-bean/target/
 /12-jaspic-ejb-integration/target/
 /13-jaspic-wrapping-request-doesnt-work/target/
+/14-jaspic-jsfpage-protected-webxml/target/
