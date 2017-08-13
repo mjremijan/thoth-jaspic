@@ -18,11 +18,10 @@
                 is an AJAX call that will attempt to get executive contract details.  The 
                 AJAX call post back to the <code>bad_support.xhtml</code> page. This post
                 will be OK because you have the <code>CustomerSupportRole</code> role to
-                access this page.  However, the post will attempt to execute the 
-                <code>ExecutiveController#getContractDetails</code> method which in 
-                uses the <code>ExecutiveContract</code> EJB which is protected by the
+                access this page.  However, when the host is handled server-side, it will
+                attempt to use the <code>ExecutiveContract</code> EJB which is protected by the
                 <code>ExecutiveRole</code> role.  Because you do <b>not</b> have
-                the <code>ExecutiveRole</code> role, the AJAX call will fail.  You will
+                the <code>ExecutiveRole</code> role, the AJAX call will error.  You will
                 get a JavaScript alert box with <code>javax.ejb.EJBAccessException</code>.  
                 Click the <code>Find Contract Details</code> button below to try it out.
             </p>
