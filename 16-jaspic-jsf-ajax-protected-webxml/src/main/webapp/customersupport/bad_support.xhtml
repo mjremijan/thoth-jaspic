@@ -22,12 +22,13 @@
                 <code>ExecutiveController#getContractDetails</code> method which in 
                 uses the <code>ExecutiveContract</code> EJB which is protected by the
                 <code>ExecutiveRole</code> role.  Because you do <b>not</b> have
-                the <code>ExecutiveRole</code> role, the AJAX call will fail.  Click
-                the <code>Find Contract Details</code> button below to try it out.
+                the <code>ExecutiveRole</code> role, the AJAX call will fail.  You will
+                get a JavaScript alert box with <code>javax.ejb.EJBAccessException</code>.  
+                Click the <code>Find Contract Details</code> button below to try it out.
             </p>
             <blockquote>
                 <h:form>
-                    <h:commandButton value = "Find Contract Details">
+                    <h:commandButton value = "Find Contract Details will fail with javax.ejb.EJBAccessException :)">
                         <f:ajax render = "outputMessage" 
                                 listener="#{customerSupportController.findContractDetails}"
                         />

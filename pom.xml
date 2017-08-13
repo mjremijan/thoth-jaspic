@@ -99,12 +99,10 @@
             if my JSF page tries to call a bean method which it should not have
             access to, will the method call fail?
             
-            16. JSF ajax call protected
-            Can I protect an xhtml page call to a server-side controller bean method?
-            What's the URL of the call?
-            Does it go in web.xml with security-constraint and roles
-            roles in Bean
-            glassfish-web.xml with identity-management groups
+            [DONE] 16. JSF AJAX call
+            Can I protect a JSF AJAX call with a web.xml
+            security-constraint, @DeclareRoles,
+            and with identity-management groups in glassfish-web.xml?
             
             
             

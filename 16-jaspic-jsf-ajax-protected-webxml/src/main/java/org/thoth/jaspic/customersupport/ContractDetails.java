@@ -1,11 +1,16 @@
 package org.thoth.jaspic.customersupport;
 
-import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 @Named(value = "contractDetails")
 @SessionScoped
-public class ContractDetails {
+public class ContractDetails implements Serializable {
+
+    private static final long serialVersionUID = 198709709709870987L;
+
+
     protected String text;
 
     public String getText() {
