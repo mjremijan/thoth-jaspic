@@ -142,8 +142,9 @@
         <module>11-jaspic-get-cdi-bean</module>
         <module>12-jaspic-ejb-integration</module>
         <module>13-jaspic-wrapping-request-doesnt-work</module>
-        <module>14-jaspic-jsfpage-protected-webxml</module>
-        <module>15-jaspic-managedbean-protected-webxml</module>
+        <module>16-jaspic-jsf-ajax-protected-webxml</module>
+        <module>14-jaspic-jsf-page-protected-webxml</module>
+        <module>15-jaspic-jsf-managedbean-protected-webxml</module>
     </modules>
     <dependencies>
         <dependency>

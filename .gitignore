@@ -28,3 +28,5 @@
 /13-jaspic-wrapping-request-doesnt-work/target/
 /14-jaspic-jsfpage-protected-webxml/target/
 /15-jaspic-managedbean-protected-webxml/target/
+/15-jaspic-jsf-managedbean-protected-webxml/target/
+/16-jaspic-jsf-ajax-protected-webxml/target/

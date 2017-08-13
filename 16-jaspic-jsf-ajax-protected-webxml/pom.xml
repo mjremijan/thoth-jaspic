@@ -7,10 +7,10 @@
         <version>1.0.0.0-SNAPSHOT</version>
     </parent>
     
-    <artifactId>15-jaspic-managedbean-protected-webxml</artifactId>
+    <artifactId>16-jaspic-jsf-ajax-protected-webxml</artifactId>
     <packaging>war</packaging>
     
-    <name>thoth-jaspic: 15-jaspic-managedbean-protected-webxml</name>
+    <name>thoth-jaspic: 16-jaspic-jsf-ajax-protected-webxml</name>
     
     <build>
         <finalName>${project.artifactId}</finalName>
