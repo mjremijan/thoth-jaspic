@@ -20,6 +20,9 @@ public class WelcomeMessage implements Serializable {
 
     public void setText(String text) {
         this.text = text;
+        if (this.text != null && this.text.isEmpty()) {
+            this.text = null;
+        }
     }
 
     public String getMessage() {
