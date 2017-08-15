@@ -109,6 +109,10 @@
             security-constraint, @DeclareRoles,
             and with identity-management groups in glassfish-web.xml?
             
+            17.a JAX-RS call (annotations)
+            Can I protect a JAX-RS AJAX call with @DeclareRoles, @RolesAllowed, 
+            and with identity-management groups in glassfish-web.xml?
+            
             
             
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
