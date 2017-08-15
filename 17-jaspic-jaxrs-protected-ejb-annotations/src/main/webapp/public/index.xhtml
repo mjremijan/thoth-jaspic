@@ -28,7 +28,9 @@
                 all REST calls start with <code>/rest</code>.
             </p>
             <p>
-                2nd, a JAX-RS <code>CustomerSupportResource</code> is created. The class-level is configured
+                2nd, a JAX-RS <code>CustomerSupportResource</code> is created.  It is an EJB and
+                is annotated as <code>@Stateless</code>.  The EJB container provides the security.
+                The class-level is configured
                 with <code>@Path("customersupport")</code> then at the method-level it's <code>@Path("help")</code>.
             </p>
             <p>
@@ -60,7 +62,9 @@
                 all REST calls start with <code>/rest</code>.
             </p>
             <p>
-                2nd, a JAX-RS <code>ExecutiveResource</code> is created. The class-level is configured
+                2nd, a JAX-RS <code>ExecutiveResource</code> is created.  It is an EJB and
+                is annotated as <code>@Stateless</code>.  The EJB container provides the security.
+                The class-level is configured
                 with <code>@Path("executive")</code> then at the method-level it's <code>@Path("contract")</code>.
             </p>
             <p>
