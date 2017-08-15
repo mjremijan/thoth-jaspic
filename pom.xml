@@ -153,7 +153,7 @@
         <module>14-jaspic-jsf-page-protected-webxml</module>
         <module>15-jaspic-jsf-managedbean-protected-webxml</module>
         <module>17-jaspic-jaxrs-protected-webxml</module>
-        <module>17-jaspic-jaxrs-protected-ejb-annotation</module>
+        <module>17-jaspic-jaxrs-protected-ejb-annotations</module>
     </modules>
     <dependencies>
         <dependency>
