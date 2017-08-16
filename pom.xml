@@ -119,18 +119,15 @@
             and with identity-management groups in glassfish-web.xml, but 
             without EJBs?
             
-            
-            
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        
-            15. JAX-RS...JWT (web tokens)
-            
-            16. How do you get the security "context" for each type of container?
+            18. How do you get the Principle from each major technology?
              - servlet
              - ejb
              - jsp
              - jax-rs
              - jsf
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        
+            15. JAX-RS...JWT (web tokens)                         
     -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -161,6 +158,7 @@
         <module>17-jaspic-jaxrs-protected-webxml</module>
         <module>17-jaspic-jaxrs-protected-ejb-annotations</module>
         <module>17-jaspic-jaxrs-protected-jersey-annotations</module>
+        <module>18-jaspic-contexts-in-each-major-technology</module>
     </modules>
     <dependencies>
         <dependency>
