@@ -126,7 +126,23 @@
              - jsf
              - jax-rs
              
-             [DONE] 19. pipestone-security and pipestone-web
+Inject the SecurityContext in any JAX-RS resource class:
+
+@Context
+SecurityContext securityContext;
+
+The same can be done in a JAX-RS resource method:
+
+@GET
+@Secured
+@Path("{id}")
+@Produces(MediaType.APPLICATION_JSON)
+public Response myMethod(@PathParam("id") Long id, 
+                         @Context SecurityContext securityContext) {
+    ...
+}
+             
+            [DONE] 19. pipestone-security and pipestone-web
              Can 2 projects be created where the -security project protects
              the context of the -web project?  This will allow the security
              piece to be configured and deployed seperately.
