@@ -119,12 +119,17 @@
             and with identity-management groups in glassfish-web.xml, but 
             without EJBs?
             
-            18. How do you get the Principle from each major technology?
+            [DONE] 18. How do you get the Principle from each major technology?
+             - jsp
              - servlet
              - ejb
-             - jsp
-             - jax-rs
              - jsf
+             - jax-rs
+             
+             [DONE] 19. pipestone-security and pipestone-web
+             Can 2 projects be created where the -security project protects
+             the context of the -web project?  This will allow the security
+             piece to be configured and deployed seperately.
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         
             15. JAX-RS...JWT (web tokens)                         
@@ -159,6 +164,9 @@
         <module>17-jaspic-jaxrs-protected-ejb-annotations</module>
         <module>17-jaspic-jaxrs-protected-jersey-annotations</module>
         <module>18-jaspic-contexts-in-each-major-technology</module>
+        <module>19-jaspic-pipestone-security</module>
+        <module>19-jaspic-pipestone-web</module>
+        <module>19-jaspic-pipestone-helloworld</module>
     </modules>
     <dependencies>
         <dependency>

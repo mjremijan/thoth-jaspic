@@ -37,3 +37,6 @@
 /17-jaspic-jaxrs-protected-ejb-annotations/target/
 /17-jaspic-jaxrs-protected-jersey-annotations/target/
 /18-jaspic-contexts-in-each-major-technology/target/
+/19-jaspic-pipestone-security/target/
+/19-jaspic-pipestone-web/target/
+/19-jaspic-pipestone-helloworld/target/

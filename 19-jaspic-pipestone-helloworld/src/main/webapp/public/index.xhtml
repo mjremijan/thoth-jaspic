@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    template="../WEB-INF/template.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+    
+    <ui:define name="test_goals">
+        <p>
+            If the JASPIC code for my applicaiton is split into a
+            <code>-security</code> project, will an unrelated application
+            deployed to the same server be affected by it?
+        </p>
+    </ui:define>
+    
+    <ui:define name="test_results">
+        <p>
+            <b>NO!</b>
+        </p>
+        <p>
+           First, you need to deploy the <code>#{applicationController.securityTitle}</code>
+           project.  This project has the JASPIC code and generates the <code>Principal</code>.     
+        </p>
+        <p>
+            Second, keep reloading this page and tail the log file of the 
+            <code>#{applicationController.securityTitle}</code> project. You'll notice
+            that as this application's page is reloaded, <b>NO</b> JASPIC security code
+            is executing.  This is a <b>good</b> thing because this
+            application is not supposed to be protected.
+        </p>
+    </ui:define>
+    
+    <ui:define name="research_references">
+    </ui:define>
+    
+</ui:composition>
