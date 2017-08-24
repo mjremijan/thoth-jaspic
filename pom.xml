@@ -130,6 +130,12 @@
              Can 2 projects be created where the -security project protects
              the context of the -web project?  This will allow the security
              piece to be configured and deployed seperately.
+             
+            [DONE ] 20. Custom Principal object
+            Can I create a custom "MyPrincipal" object which can return the 
+            principal name along with a list of all the roles?
+            
+            
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         
             15. JAX-RS...JWT (web tokens)                         
@@ -167,6 +173,8 @@
         <module>19-jaspic-pipestone-security</module>
         <module>19-jaspic-pipestone-web</module>
         <module>19-jaspic-pipestone-helloworld</module>
+        <module>20-jaspic-customprincipal-security</module>
+        <module>20-jaspic-customprincipal-web</module>
     </modules>
     <dependencies>
         <dependency>
