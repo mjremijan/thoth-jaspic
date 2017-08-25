@@ -42,3 +42,4 @@
 /19-jaspic-pipestone-helloworld/target/
 /20-jaspic-customprincipal-security/target/
 /20-jaspic-customprincipal-web/target/
+/21-jaspic-jaxrs-jwt-filter-stuff/target/
