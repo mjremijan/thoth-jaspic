@@ -5,6 +5,7 @@
     <artifactId>thoth-jaspic</artifactId>
     <version>1.0.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>thoth-jaspic</name>
     <description>Research and Development on JASPIC (JSR 196)</description>
     
     <!--
