@@ -5,22 +5,30 @@ Research and Development on JASPIC (JSR 196)
 Areas of Research
 ------------------
 
-* **01-jaspic-embedded** - Get JASPIC up and running embedded within a WAR.  Requests run the JASPIC code.  Nothing actually protected.
+* **01-jaspic-embedded** - Get JASPIC up and running embedded within a WAR.  
+    Requests run the JASPIC code.  Nothing actually protected.
   * Test URL: http://localhost:8080/jaspic-embedded
-* **02-jaspic-goodneighbor** - JASPIC webapp only affects this WAR.  Does not affect any other WAR deployed to the same server.
+
+* **02-jaspic-goodneighbor** - JASPIC webapp only affects this WAR.  
+    Does not affect any other WAR deployed to the same server.
   * Test URL: http://localhost:8080/jaspic-goodneighbor
+
 * **02-jaspic-helloworld** - A "hello world" app to go with test 02 to verify the JASPIC code is not run when this application is accessed. 
   * Test URL: http://localhost:8080/jaspic-helloworld
+
 * **03-jaspic-principal** - Generate a Principal object from HttpServletRequest.
             No roles, just a Principal with the right name
   * Test URL: http://localhost:8080/jaspic-principal
+
 * **04-jaspic-isuserinrole-glassfishwebxml** - Generate a Principal object with ROLES from an HttpServletRequest. 
             Application-specific, valid roles are in web.xml.  Application-specific
             roles are mapped to user's groups in glassfish-web.xml
   * Test URL: http://localhost:8080/jaspic-isuserinrole-glassfishwebxml
+
 * **04-jaspic-isuserinrole-webxml** - Generate a Principal object with ROLES from an HttpServletRequest. 
             Valid roles are in web.xml
   * Test URL: http://localhost:8080/jaspic-isuserinrole-webxml
+
 * **05-japsic-isuserinrole-declareroles** - Generate a Principal object from HttpServletRequest with roles. 
             Valid roles are in @DeclaredRoles annotation
   * Test URL: http://localhost:8080/japsic-isuserinrole-declareroles
