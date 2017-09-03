@@ -40,19 +40,23 @@ Areas of Research
 
 * **06-jaspic-sessionid** - Can my code get the session id consistently?
   * Test URL: http://localhost:8080/06-jaspic-sessionid
+
 * **07-jaspic-multiplerequests** - If request 'A' sets the principal, can I make requests 'B', 'C', and
             'D' and maintain that principal across the requests?
   * Test URL: http://localhost:8080/07-jaspic-multiplerequests
+
 * **08-jaspic-servlet-protected-annotations** - Can there be a servlet that's public which any group may access and
             another servlet that's private which is accessible only by a specific 
             identity management group? Everything is declared in annotations 
             except for the identity-management groups in and glassfish-web.xml. 
   * Test URL: http://localhost:8080/08-jaspic-servlet-protected-annotations
+
 * **08-jaspic-servlet-protected-webxml** - Can there be a servlet that's public which any group may access and
             another servlet that's private which is accessible only by a specific 
             identity management group?Everything is declared in web.xml and 
             glassfish-web.xml.
   * Test URL: http://localhost:8080/08-jaspic-servlet-protected-webxml
+
 * **09-jaspic-jsp-protected-annotations** - Can there be a JSP that's public which any group may access and
             another JSP that's private which is accessible only by a specific 
             identity management group? Everything is declared in annotations 
