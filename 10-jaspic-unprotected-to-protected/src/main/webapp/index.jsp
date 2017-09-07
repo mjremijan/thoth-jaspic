@@ -50,7 +50,7 @@
                         From the <i>Java EE 5 Tutorial</i> retrieved from 
                         <a href="https://docs.oracle.com/cd/E19575-01/819-3669/bncbk/index.html">https://docs.oracle.com/cd/E19575-01/819-3669/bncbk/index.html</a>
                         it says:<br/><br/>
-                        "Security constraints work only on the original request URI and not on calls made throug 
+                        "Security constraints work only on the original request URI and not on calls made through 
                         a <span class="code">RequestDispatcher</span> (which include 
                         <span class="code">&lt;jsp:include&gt;</span>
                         and 

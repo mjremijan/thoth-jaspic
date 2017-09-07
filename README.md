@@ -62,20 +62,24 @@ Areas of Research
             identity management group? Everything is declared in annotations 
             except for the identity-management groups in glassfish-web.xml.
   * Test URL: http://localhost:8080/09-jaspic-jsp-protected-annotations
+
 * **09-jaspic-jsp-protected-webxml** - Can there be a JSP that's public which any group may access and
             another JSP that's private which is accessible only by a specific 
             identity management group? Everything is declared in web.xml and 
             glassfish-web.xml.
   * Test URL: http://localhost:8080/09-jaspic-jsp-protected-webxml
+
 * **10-jaspic-unprotected-to-protected** - If the application has a public servlet that attempts to forward
             to either a protected servlet or JSP, will the forward request
             be denied?
   * Test URL: http://localhost:8080/10-jaspic-unprotected-to-protected
+
 * **11-jaspic-get-cdi-bean** - When I get to important code (the code I write to create
             the Principal and groups) can I use the CDI to get an
             instance of some object which will get the principal 
             and group information for me?
   * Test URL: http://localhost:8080/11-jaspic-get-cdi-bean
+
 * **12-jaspic-ejb-integration** - If I have an EJB which is protected by @RolesAllowed,
             will the method call fail if I don't have that role?
             Will it succeed if I do have that role?
