@@ -120,7 +120,6 @@ Areas of Research
             and with identity-management groups in glassfish-web.xml?
   * Test URL: http://localhost:8080/17-jaspic-jaxrs-protected-webxml
 
-
 * **18-jaspic-contexts-in-each-major-technology** - How do you get the Principle from each major technology?
   * JSP
   * Servlet
@@ -128,21 +127,26 @@ Areas of Research
   * JSF
   * JAX-RS
   * Test URL: http://localhost:8080/18-jaspic-contexts-in-each-major-technology
+
 * **19-jaspic-pipestone-helloworld** - A "helloworld" test application to test that this application is **NOT** protected by jaspic-pipestone-security 
   * Test URL: http://localhost:8080/19-jaspic-pipestone-helloworld
+
 * **19-jaspic-pipestone-security** - Can I separte the JASPIC securty code from my applications code,
              essentially creating 2 projects where the "-security" project protects
              the context of the "-web" project?  This will allow the security
              piece to be configured and deployed seperately.  This is the security code.
   * Test URL: http://localhost:8080/19-jaspic-pipestone-security
+
 * **19-jaspic-pipestone-web** - A "web" test application to test that this application **IS** protected by jaspic-pipestone-security
   * Test URL: http://localhost:8080/19-jaspic-pipestone-web
+
 * **20-jaspic-customprincipal-security** - This is the customprincipal "security" project.  This project has a
             custom `MyPrincipal` object that has an overloaded `toString()` method that returns a JSON
             representation of the principal name, roles, and other principal data.
   * Test URL: http://localhost:8080/20-jaspic-customprincipal-security
+
 * **20-jaspic-customprincipal-web** - This is the customprincipal "web" project.  It is protected by
-            customprincipal-security.  Although ustomprincipal-security uses a custom
+            customprincipal-security.  Although customprincipal-security uses a custom
             `MyPrincipal` object, this "web" project does not know about that class (does **not** have
             a dependency on the class) and therefore cannot typecast to the `MyPrincipal` object type.
             However, since `MyPrincipal#toString()` is overloaded and returns a JSON representation of

@@ -32,7 +32,7 @@ public class MyPrincipal implements Principal {
     public String toString() {
         StringBuilder sp = new StringBuilder();
         sp.append("{").append("\n");
-        sp.append("   \"sub\" : \"jaspic-research-usr\"").append("\n");
+        sp.append("   \"sub\" : \"").append(getName()).append("\"").append("\n");
         sp.append("  ,\"roles\" : ["+roles.stream().reduce((a,b) -> "\"" + a + "\",\"" + b + "\"").get()+"]").append("\n");
         sp.append("}").append("\n");
         return sp.toString();
