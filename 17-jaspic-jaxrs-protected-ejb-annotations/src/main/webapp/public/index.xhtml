@@ -28,20 +28,23 @@
                 all REST calls start with <code>/rest</code>.
             </p>
             <p>
-                2nd, a JAX-RS <code>CustomerSupportResource</code> is created.  It is an EJB and
-                is annotated as <code>@Stateless</code>.  The EJB container provides the security.
+                2nd, a JAX-RS <code>CustomerSupportResource</code> is created.  
                 The class-level is configured
-                with <code>@Path("customersupport")</code> then at the method-level it's <code>@Path("help")</code>.
+                with <code>@Path("customersupport")</code> and at the
+                method-level it's <code>@Path("help")</code>.
             </p>
             <p>
-                Putting all this configuration together results in a URL that looks like:
+                Putting all this path configuration together results in a URL that looks like:
             </p>
             <blockquote>
                 <p><code>#{request.contextPath}/rest/customersupport/help"</code></p>
             </blockquote>
             <p>
-                3rd, the <code>web.xml</code> got a <code>&lt;security-constraint&gt;</code>
-                with a <code>&lt;url-pattern&gt;/rest/customersupport/*&lt;/url-pattern&gt;</code>
+                3rd, <code>CustomerSupportResource</code>
+                is annotated as <code>@Stateless</code>.  The EJB container provides the security.
+                The method is annotated with <code>@RolesAllowed({"CustomerSupportRole"})</code>
+                so only <code>CustomerSupportRole</code> has permission to execute
+                the method.
             </p>
             <p>
                 Finally, the link below tests everything.  Because you have the <code>CustomerSupportRole</code>
@@ -62,25 +65,28 @@
                 all REST calls start with <code>/rest</code>.
             </p>
             <p>
-                2nd, a JAX-RS <code>ExecutiveResource</code> is created.  It is an EJB and
-                is annotated as <code>@Stateless</code>.  The EJB container provides the security.
+                2nd, a JAX-RS <code>ExecutiveResource</code> is created.  
                 The class-level is configured
-                with <code>@Path("executive")</code> then at the method-level it's <code>@Path("contract")</code>.
+                with <code>@Path("executive")</code> and at the
+                method-level it's <code>@Path("contract")</code>.
             </p>
             <p>
-                Putting all this configuration together results in a URL that looks like:
+                Putting all this path configuration together results in a URL that looks like:
             </p>
             <blockquote>
                 <p><code>#{request.contextPath}/rest/executive/contract"</code></p>
             </blockquote>
             <p>
-                3rd, the <code>web.xml</code> got a <code>&lt;security-constraint&gt;</code>
-                with a <code>&lt;url-pattern&gt;/rest/executive/*&lt;/url-pattern&gt;</code>
+                3rd, <code>ExecutiveResource</code>
+                is annotated as <code>@Stateless</code>.  The EJB container provides the security.
+                The method is annotated with <code>@RolesAllowed({"ExecutiveRole"})</code>
+                so only <code>ExecutiveRole</code> has permission to execute
+                the method.
             </p>
             <p>
                 Finally, the link below tests everything.  Because you do <b>not</b> have
                 the <code>ExecutiveRole</code>
-                role, you aren <b>not</b> able to access this REST resource:
+                role, you are <b>not</b> able to access this REST resource:
             </p>
             <p>
                 <h:outputLink value="#{request.contextPath}/rest/executive/contract">

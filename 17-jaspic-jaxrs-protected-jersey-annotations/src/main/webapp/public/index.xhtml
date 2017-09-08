@@ -26,7 +26,7 @@
             Instead of configuring Jersey with the standard JAX-RS classes supported
             by all Java EE servers, you instead need to use a Jersey-specific
             class for the configuration: <code>org.glassfish.jersey.server.ResourceConfig</code>.
-            Your application would now look like this; polluted by proprietory code and
+            Your application would now look like this; polluted by proprietary code and
             causing problems or limiting your ability to deploy easily to different EE servers:
         </p>
         <blockquote>
@@ -59,6 +59,9 @@ public&nbsp;class&nbsp;ResourceConfig&nbsp;&nbsp;extends&nbsp;org.glassfish.jers
                 <p><code>#{request.contextPath}/rest/customersupport/help"</code></p>
             </blockquote>
             <p>
+                The method is protected by <code>@RolesAllowed({"CustomerSupportRole"})</code>
+            </p>
+            <p>
                 Because you have the <code>CustomerSupportRole</code>
                 role, you are able to access this REST resource:
             </p>
@@ -82,6 +85,9 @@ public&nbsp;class&nbsp;ResourceConfig&nbsp;&nbsp;extends&nbsp;org.glassfish.jers
             <blockquote>
                 <p><code>#{request.contextPath}/rest/executive/contract"</code></p>
             </blockquote>
+            <p>
+                The method is protected by <code>@RolesAllowed({"ExecutiveRole"})</code>
+            </p>
             <p>
                 Because you do <b>not</b> have the <code>ExecutiveRole</code>
                 role, access to this REST resource will fail:

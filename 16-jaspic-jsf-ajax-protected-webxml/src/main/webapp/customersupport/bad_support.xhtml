@@ -16,9 +16,10 @@
                 This is the <code>customersupport/bad_support.xhtml</code> page.  You have
                 the <code>CustomerSupportRole</code> role, so you can see this page.  Below
                 is an AJAX call that will attempt to get executive contract details.  The 
-                AJAX call post back to the <code>bad_support.xhtml</code> page. This post
-                will be OK because you have the <code>CustomerSupportRole</code> role to
-                access this page.  However, when the host is handled server-side, it will
+                AJAX call post back to the <code>bad_support.xhtml</code> page. The post
+                to <code>bad_support.xhtml</code>
+                will be OK because you have the <code>CustomerSupportRole</code> role and
+                can access the page.  However, when the post is handled server-side, it will
                 attempt to use the <code>ExecutiveContract</code> EJB which is protected by the
                 <code>ExecutiveRole</code> role.  Because you do <b>not</b> have
                 the <code>ExecutiveRole</code> role, the AJAX call will error.  You will

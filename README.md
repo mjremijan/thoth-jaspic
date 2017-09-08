@@ -84,34 +84,43 @@ Areas of Research
             will the method call fail if I don't have that role?
             Will it succeed if I do have that role?
   * Test URL: http://localhost:8080/12-jaspic-ejb-integration
+
 * **13-jaspic-wrapping-request-doesnt-work** - Does proxying the HttpServletRequext with a @WebFilter work
             just as well?
   * Test URL: http://localhost:8080/13-jaspic-wrapping-request-doesnt-work
+
 * **14-jaspic-jsf-page-protected-webxml** - Can I protect a JSF page with a web.xml
             security-constraint, @DeclareRoles,
             and with identity-management groups in glassfish-web.xml?
-  * Test URL: http://localhost:8080/14-jaspic-jsf-page-protected-webxml
+  * Test URL: http://localhost:8080/14-jaspic-jsf-page-protected-
+
 * **15-jaspic-jsf-managedbean-protected-webxml** - JSF managed bean call protected
             Can I protect a server-side JSF managed bean call.  In other words,
             if my JSF page tries to call a bean method which it should not have
             access to, will the method call fail?
   * Test URL: http://localhost:8080/15-jaspic-jsf-managedbean-protected-webxml
+
 * **16-jaspic-jsf-ajax-protected-webxml** - Can I protect a JSF AJAX call with a web.xml
             security-constraint, @DeclareRoles,
             and with identity-management groups in glassfish-web.xml?
   * Test URL: http://localhost:8080/16-jaspic-jsf-ajax-protected-webxml
-* **17-jaspic-jaxrs-protected-ejb-annotations** - Can I protect a JAX-RS AJAX call with @DeclareRoles, @RolesAllowed, 
+
+* **17-jaspic-jaxrs-protected-ejb-annotations** - Can I protect a JAX-RS client call with @DeclareRoles, @RolesAllowed, 
             and with identity-management groups in glassfish-web.xml? Yes,
             with EJBs and no proprietory Jersey code.
   * Test URL: http://localhost:8080/17-jaspic-jaxrs-protected-ejb-annotations
-* **17-jaspic-jaxrs-protected-jersey-annotations** - Can I protect a JAX-RS AJAX call with @DeclareRoles, @RolesAllowed, 
+
+* **17-jaspic-jaxrs-protected-jersey-annotations** - Can I protect a JAX-RS client call with @DeclareRoles, @RolesAllowed, 
             and with identity-management groups in glassfish-web.xml, but 
             without EJBs? Yes, but you must have Jersey specific code :(
   * Test URL: http://localhost:8080/17-jaspic-jaxrs-protected-jersey-annotations
-* **17-jaspic-jaxrs-protected-webxml** - Can I protect a JAX-RS AJAX call with a web.xml
+
+* **17-jaspic-jaxrs-protected-webxml** - Can I protect a JAX-RS client call with a web.xml
             security-constraint, @DeclareRoles,
             and with identity-management groups in glassfish-web.xml?
   * Test URL: http://localhost:8080/17-jaspic-jaxrs-protected-webxml
+
+
 * **18-jaspic-contexts-in-each-major-technology** - How do you get the Principle from each major technology?
   * JSP
   * Servlet
