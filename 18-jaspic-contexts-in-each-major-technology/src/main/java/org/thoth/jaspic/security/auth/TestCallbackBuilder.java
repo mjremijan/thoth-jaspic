@@ -57,15 +57,14 @@ public class TestCallbackBuilder {
         }
 
         if (callback == null) {
-            
+
             String username = "thoth-jaspic-usr";
             String groups = "GROUP_CUSTOMER_SUPPORTS,GROUP_SALARY_EMPLOYEES";
 
             if (groups != null) {
-                log.info(String.format("Create Callback[] from HARD-CODED-GROUP"));
+                log.info(String.format("Create Callback[] from REQUEST"));
                 log.info(String.format("REQUEST username=\"%s\"",username));
                 log.info(String.format("REQUEST groups=\"%s\"",groups));
-                log.info(String.format("Create Callback from REQUEST"));
                 callback = new Callback[]{
                       new CallerPrincipalCallback(clientSubject, username)
                     , new GroupPrincipalCallback(clientSubject, groups.split(","))
