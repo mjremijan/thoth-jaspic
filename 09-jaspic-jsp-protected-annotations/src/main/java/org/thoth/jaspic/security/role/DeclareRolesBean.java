@@ -4,5 +4,4 @@ import javax.annotation.security.DeclareRoles;
 
 @DeclareRoles({"ManagerRole", "AdminRole", "StockholderRole"})
 public class DeclareRolesBean {
-
 }
