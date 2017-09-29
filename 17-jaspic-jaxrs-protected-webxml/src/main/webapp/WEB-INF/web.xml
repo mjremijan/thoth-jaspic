@@ -44,7 +44,6 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>customersupport</web-resource-name>
-            <url-pattern>/customersupport/*</url-pattern>
             <url-pattern>/rest/customersupport/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
