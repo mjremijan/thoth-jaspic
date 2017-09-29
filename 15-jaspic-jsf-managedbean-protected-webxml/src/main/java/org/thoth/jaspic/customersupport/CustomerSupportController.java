@@ -8,12 +8,8 @@ import javax.inject.Named;
 @Stateless
 public class CustomerSupportController {
 
-    public CustomerSupportController() {
-    }
-    
     @RolesAllowed({"CustomerSupportRole"})
     public String getHelp() {
         return "Tweet @customersupport and have a nice day :)";
     }
-
 }
