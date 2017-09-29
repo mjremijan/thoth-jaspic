@@ -5,7 +5,6 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class ExecutiveApprovals {
-
     @RolesAllowed({"ExecutiveRole"})
     public String approveContract() {
         return "APPROVED";
