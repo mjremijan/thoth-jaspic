@@ -7,7 +7,6 @@ import javax.ws.rs.core.MediaType;
 
 @Path("customersupport")
 public class CustomerSupportResource {
-
     @GET
     @Path("help")
     @Produces(MediaType.APPLICATION_JSON)
