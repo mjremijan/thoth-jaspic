@@ -25,6 +25,9 @@
             <role-name>ManagerRole</role-name>
         </auth-constraint>
     </security-constraint>
+     <security-role>
+        <role-name>ManagerRole</role-name>
+    </security-role>
     
     <!-- SECURITY CONSTRAINT #1 -->
     <security-constraint>
@@ -40,9 +43,7 @@
     </security-constraint>
     
     
-    <security-role>
-        <role-name>ManagerRole</role-name>
-    </security-role>
+   
     <security-role>
         <role-name>AdminRole</role-name>
     </security-role>
