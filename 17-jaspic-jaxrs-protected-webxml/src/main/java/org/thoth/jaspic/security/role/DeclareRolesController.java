@@ -6,7 +6,7 @@ import javax.annotation.security.DeclareRoles;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-@DeclareRoles({"ExecutiveRole", "CustomerSupportRole", "SalaryEmployeeRole"})
+@DeclareRoles({"ExecutiveRole", "CustomerSupportRole"})
 @Named(value = "declareRolesController")
 @ApplicationScoped
 public class DeclareRolesController {
