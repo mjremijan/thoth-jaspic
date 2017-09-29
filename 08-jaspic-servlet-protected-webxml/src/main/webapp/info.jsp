@@ -14,7 +14,7 @@
             <table border="1">
                 <caption>Roles</caption>
                 <tr>
-                    <% String managerRole = "manager.ManagerServlet"; %>
+                    <% String managerRole = "ManagerRole"; %>
                     <td style="font-family:courier">Request#isUserInRole("<%= managerRole %>")&nbsp;</td>
                     <td style="font-family:courier"><%= request.isUserInRole(managerRole)%></td>
                 </tr>
