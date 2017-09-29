@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "AdminServlet", urlPatterns = {"/sbin/admin"})
 @ServletSecurity(
-    @HttpConstraint(rolesAllowed = {"admin.AdminServlet"})
+    @HttpConstraint(rolesAllowed = {"AdminRole"})
 )
 public class AdminServlet extends HttpServlet {
 

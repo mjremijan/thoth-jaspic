@@ -31,12 +31,12 @@
             </p>
             <p>
                 For roles, instead of using <span style="font-family: courier">&lt;security-role&gt;</span>
-                in web.xml, the <span style="font-family: courier">@DeclareRoles({"manager.ManagerServlet", "admin.AdminServlet"})</span>
+                in web.xml, the <span style="font-family: courier">@DeclareRoles({"ManagerRole", "AdminRole"})</span>
                 annotation is used.
             </p>
             <p>
                 For constraints, instead of using <span style="font-family: courier">&lt;security-constraint&gt;</span>
-                in web.xml, the <span style="font-family: courier">@ServletSecurity(@HttpConstraint(rolesAllowed = {"manager.ManagerServlet", "admin.AdminServlet"})</span>
+                in web.xml, the <span style="font-family: courier">@ServletSecurity(@HttpConstraint(rolesAllowed = {"ManagerRole", "AdminRole"})</span>
                 annotation is used.
             </p>
             <p>
