@@ -34,7 +34,7 @@
             <p>
                 Roles are not a problem.  The 
                 <span class="code">@DeclareRoles</span> annotation can be used
-                on a bean in the code and replace the <span class="code">web.xml</span>
+                on a Servlet in the code and replace the <span class="code">web.xml</span>
                 <span class="code">&lt;security-role&gt;</span> tag.  
             </p>
             <p>
@@ -72,7 +72,7 @@
                 things might be done.
             </p>
             <p>
-                For roles, the <span class="code">DeclareRolesBean</span> class
+                For roles, the <span class="code">DeclareRolesServlet</span> class
                 uses the <span class="code">@DeclareRoles</span> annotation
                 to declare 3 <b>application specific</b> roles: 
                 <span class="code">{"ManagerRole", "AdminRole", "StockholderRole"}</span>
