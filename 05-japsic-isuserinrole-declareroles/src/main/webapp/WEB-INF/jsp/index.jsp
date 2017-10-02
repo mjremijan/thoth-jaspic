@@ -48,46 +48,23 @@
                 <span style="font-family: courier">@DeclareRoles</span> annotation?
             </p>
             <p>
-                Turns out, it seems as if <span style="font-family: courier">@DeclareRoles</span> can be anywhere.
-                My guess is the Servlet container is scanning all the classes in the application looking for
-                the annoation, though this behavior is not clear in the Servlet specification. So it may be
-                specific to Payara.  I put <span style="font-family: courier">@DeclareRoles</span> on the 
-                following classes and they <b>ALL</b> worked.
-            </p>
-            <ol>
-                <li>
-                    The <span style="font-family: courier">IndexServlet</span> class, configured
-                    to load at startup, which is responsible for this page.
-                </li>
-                <li>
-                    A <span style="font-family: courier">RolesServlet</span> class, configured 
-                    to load at startup, but never actually used
-                </li>
-                <li>
-                    A <span style="font-family: courier">DeclareRolesBean</span> which is a simple POJO
-                    never used for anything.
-                </li>
-            </ol>
-            <p>
-                No matter where I put the <span style="font-family: courier">@DeclareRoles</span> annotation,
-                it seems as though the Servlet container found them all and registered all the roles.  I even
-                tried having a single <span style="font-family: courier">@DeclareRoles</span> annoation in each class
-                and still the Servlet container found and registered them all.
+                Turns out, it seems as if <span style="font-family: courier">@DeclareRoles</span> can be anywhere
+                when using GlassFish or Payara.  This, however, is behavior specific to these EE Servers.  
+                WebLogic wants <span style="font-family: courier">@DeclareRoles</span> on a 
+                <span style="font-family: courier">Servlet</span> class.  JSR 340 of the Servlet 3.1 specification
+                states in section 15.5.1 that "The <span style="font-family: courier">@DeclareRoles</span>
+                annotation may only be defined in classes implementing the
+                <span style="font-family: courier">javax.servlet.Servlet</span> interface or a subclass thereof." 
+                So in this case it appears the WebLogic behavior is correct.
             </p>
             <p>
                 For <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i>, all of the roles have
                 been removed from <span style="font-family: courier">web.xml</span> and are now declared on
                 the <span style="font-family: courier">@DeclareRoles</span> annoation of the 
-                <span style="font-family: courier">DeclareRolesBean.java</span> class (again, this class is
-                a simple POJO that's never used).  The valid roles for
+                <span style="font-family: courier">DeclareRolesServlet.java</span> class.  The valid roles for
                 <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> are: <pre>
-package org.thoth.jaspic;
-import javax.annotation.security.DeclareRoles;
-
 <b>@DeclareRoles({"public", "classified", "top secret"})</b>
-public class DeclareRolesBean {
-
-}</pre>
+</pre>
             </p>
             <p>
                 If you enter one of these roles in the form below and then submit,
@@ -97,7 +74,7 @@ public class DeclareRolesBean {
                 Then <span style="font-family: courier">Request#isUserInRole()</span> will be called
                 using the roles you enter in the form below.  If what you enter matches what's on 
                 the <span style="font-family: courier">@DeclareRoles</span> annoation of the 
-                <span style="font-family: courier">DeclareRolesBean.java</span> class, then
+                <span style="font-family: courier">DeclareRolesServlet.java</span> class, then
                 <span style="font-family: courier">Request#isUserInRole()</span> will                 
                 return <span style="font-family: courier">true</span>.  Any other
                 role will return <span style="font-family: courier">false</span>.
