@@ -52,18 +52,19 @@
             </p>
             <p>
                 The idea is like this.  Inside of your applicaiton you have the
-                <span style="font-family: courier">@DeclareRoles</span> annotations on classes that define
+                <span style="font-family: courier">@DeclareRoles</span> annotations on Servlet classes that define
                 <i>roles</i> that are <b>application-specific</b>.  This means that these <i>roles</i> are only 
                 used within the application and nowhere else.  So for <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i>, the following
                 <b>application-specific</b> <i>roles</i> are declared by the 
                 <span style="font-family: courier">@DeclareRoles</span> annotation on the 
-                <span style="font-family: courier">DeclareRolesBean.java</span> class: <pre>
+                <span style="font-family: courier">DeclareRolesServlet.java</span> class: <pre>
 package org.thoth.jaspic;
 import javax.annotation.security.DeclareRoles;
+import javax.servlet.http.HttpServlet;
 
 <b>@DeclareRoles({"everybody", "the boss", "the boss's boss"})</b>
-public class DeclareRolesBean {
-
+public class DeclareRolesServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 }</pre>           
             </p>            
             <p>
@@ -71,7 +72,7 @@ public class DeclareRolesBean {
                 to secure the application.
             </p>
             <p>
-                Now, some time later, its finally decided that the indentity management
+                Now, some time later, it's finally decided that the indentity management
                 for <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> will be handled by Microsoft Active Directory and users 
                 of <i><%= pageContext.findAttribute("maven.project.artifactId") %>.war</i> will be assigned to the following <b>identity-management</b>
                 <i>groups</i>: "public", "classified", "top secret".
